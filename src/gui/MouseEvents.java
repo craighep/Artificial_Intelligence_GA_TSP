@@ -14,13 +14,16 @@ public class MouseEvents implements MouseListener {
         cities = new ArrayList<>();
     }
     
+    public ArrayList<City> getCities(){
+        return cities;
+    }
+    
     @Override
     public void mouseClicked(MouseEvent e) {
         int x=e.getX();
         int y=e.getY();
         City city = new City(x, y);
         cities.add(city);
-        System.out.println(x+","+y);//these co-ords are relative to the component
     }
 
     @Override

@@ -2,11 +2,17 @@ package gui;
 
 
 import data.City;
+import data.TSP_GA;
+import data.TourManager;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -17,19 +23,30 @@ import javax.swing.SwingConstants;
 
 public class Runnable extends JFrame {
 
-    public ArrayList<City> cities;
+    private MouseEvents mouseListener;
     
     public Runnable() {
-       
-        MouseEvents mouseListener = new MouseEvents();
-        OptionEvents optionsListener = new OptionEvents();
+        mouseListener = new MouseEvents();
         
         JPanel pointsPanel = new JPanel(new BorderLayout());
         pointsPanel.add(new JLabel("Path:", SwingConstants.LEFT), BorderLayout.PAGE_START);
         pointsPanel.addMouseListener(mouseListener);
 
         JLabel inputField = new JLabel();
+        
         JButton sendBtn = new JButton("Create path");
+        sendBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                ArrayList<City> cities = mouseListener.getCities();
+                TSP_GA tourHelper = new TSP_GA();
+                tourHelper.calculateTour(cities);
+                
+            }
+        });      
+        pointsPanel.paint(null);
+        
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.LINE_AXIS));
         inputPanel.add(inputField);
