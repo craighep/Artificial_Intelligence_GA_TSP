@@ -1,16 +1,38 @@
 package data;
 
-/*
-* GA.java
-* Manages algorithms for evolving population
-*/
+import java.util.ArrayList;
+import java.util.Iterator;
 
+/*
+ * GA.java
+ * Manages algorithms for evolving population
+ */
 public class GA {
 
     /* GA parameters */
     private static final double mutationRate = 0.015;
     private static final int tournamentSize = 5;
     private static final boolean elitism = true;
+
+    public static void calculateTour(ArrayList<City> cities) {
+
+        // Initialize population
+        Population pop = new Population(cities.size(), true);
+        System.out.println("Initial distance: " + pop.getFittest().getDistance());
+
+        // Evolve population for 1000 generations
+        pop = evolvePopulation(pop);
+        for (int i = 0; i < 1000; i++) {
+            pop = evolvePopulation(pop);
+        }
+
+        // Print final results
+        System.out.println("Finished");
+        System.out.println("Final distance: " + pop.getFittest().getDistance());
+        System.out.println("Solution:");
+        System.out.println(pop.getFittest());
+        TourManager.setAll(pop.getFittest().getAllInTour());
+    }
 
     // Evolves a population over one generation
     public static Population evolvePopulation(Population pop) {
@@ -86,9 +108,9 @@ public class GA {
     // Mutate a tour using swap mutation
     private static void mutate(Tour tour) {
         // Loop through tour cities
-        for(int tourPos1=0; tourPos1 < tour.tourSize(); tourPos1++){
+        for (int tourPos1 = 0; tourPos1 < tour.tourSize(); tourPos1++) {
             // Apply mutation rate
-            if(Math.random() < mutationRate){
+            if (Math.random() < mutationRate) {
                 // Get a second random position in the tour
                 int tourPos2 = (int) (tour.tourSize() * Math.random());
 

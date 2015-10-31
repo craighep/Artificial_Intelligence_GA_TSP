@@ -1,10 +1,9 @@
 package data;
 
 /*
-* Population.java
-* Manages a population of candidate tours
-*/
-
+ * Population.java
+ * Manages a population of candidate tours
+ */
 public class Population {
 
     // Holds population of tours
@@ -23,12 +22,12 @@ public class Population {
             }
         }
     }
-    
+
     // Saves a tour
     public void saveTour(int index, Tour tour) {
         tours[index] = tour;
     }
-    
+
     // Gets a tour from population
     public Tour getTour(int index) {
         return tours[index];
