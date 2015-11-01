@@ -10,10 +10,11 @@ import java.util.Collections;
 public class Tour {
 
     // Holds our tour of cities
-    private ArrayList tour = new ArrayList<City>();
+    private ArrayList tour = new ArrayList();
     // Cache
     private double fitness = 0;
     private int distance = 0;
+    private int initialDistance = 0;
 
     // Constructs a blank tour
     public Tour() {
@@ -59,6 +60,14 @@ public class Tour {
             fitness = 1 / (double) getDistance();
         }
         return fitness;
+    }
+    
+    public void setInitialDistance(int distance) {
+        initialDistance = distance;
+    }
+    
+    public int getInitialDistance(){
+        return initialDistance;
     }
 
     // Gets the total distance of the tour

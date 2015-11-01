@@ -31,7 +31,7 @@ public class TSPFrame extends JFrame {
 
         //Create new ButtonPanel
         btPanel = new ButtonPanel(cvPanel);
-        btPanel.setPreferredSize(new Dimension(155, this.getHeight()));
+        btPanel.setPreferredSize(new Dimension(175, this.getHeight()));
 
         //Set panel positions and add to frame
         add(btPanel, BorderLayout.WEST);

@@ -1,20 +1,20 @@
 package data;
 
-import java.awt.Graphics;
-
 /*
  * City.java
  * Models a city
  */
 public class City {
 
-    int x;
-    int y;
+    private int x;
+    private int y;
+    private int id;
 
     // Constructs a city at chosen x, y location
     public City(int x, int y) {
         this.x = x;
         this.y = y;
+        this.id = TourManager.numberOfCities()+1;
     }
 
     // Gets city's x coordinate
@@ -25,6 +25,10 @@ public class City {
     // Gets city's y coordinate
     public int getY() {
         return this.y;
+    }
+    
+    public int getID() {
+        return this.id;
     }
 
     // Gets the distance to given city

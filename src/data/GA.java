@@ -1,7 +1,6 @@
 package data;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /*
  * GA.java
@@ -14,24 +13,27 @@ public class GA {
     private static final int tournamentSize = 5;
     private static final boolean elitism = true;
 
-    public static void calculateTour(ArrayList<City> cities) {
-
+    public static Tour calculateTour(ArrayList<City> cities) {
+        
         // Initialize population
         Population pop = new Population(cities.size(), true);
-        System.out.println("Initial distance: " + pop.getFittest().getDistance());
+        int initialDistance = pop.getFittest().getDistance();
+        System.out.println("Initial distance: " + initialDistance);
 
         // Evolve population for 1000 generations
         pop = evolvePopulation(pop);
         for (int i = 0; i < 1000; i++) {
             pop = evolvePopulation(pop);
         }
+        Tour solution = pop.getFittest();
 
         // Print final results
         System.out.println("Finished");
-        System.out.println("Final distance: " + pop.getFittest().getDistance());
+        System.out.println("Final distance: " + solution.getDistance());
         System.out.println("Solution:");
-        System.out.println(pop.getFittest());
-        TourManager.setAll(pop.getFittest().getAllInTour());
+        System.out.println(solution);
+        solution.setInitialDistance(initialDistance);
+        return solution;
     }
 
     // Evolves a population over one generation

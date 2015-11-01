@@ -1,10 +1,11 @@
 package gui.listener;
 
 import data.City;
+import data.GA;
+import data.Tour;
 import data.TourManager;
 import java.awt.event.*;
 import gui.panel.*;
-import java.awt.Rectangle;
 
 public class MouseInterListener implements MouseListener {
 
@@ -22,24 +23,34 @@ public class MouseInterListener implements MouseListener {
         buttonPane = bp;
     }
 
+    @Override
     public void mouseEntered(MouseEvent e) {
 
     }
 
+    @Override
     public void mouseExited(MouseEvent e) {
 
     }
 
+    @Override
     public void mouseClicked(MouseEvent e) throws NullPointerException {
         City city = new City(e.getX(), e.getY());
         TourManager.addCity(city);
+        if(TourManager.isSolved()){
+            Tour solution = GA.calculateTour(TourManager.getAll());
+            TourManager.setAll(solution.getAllInTour()); // Set current tour to solution for repaint
+            canvasPane.showStats(solution);
+        }  
         canvasPane.repaint();
     }
 
+    @Override
     public void mousePressed(MouseEvent e) {
 
     }
 
+    @Override
     public void mouseReleased(MouseEvent e) {
 
     }

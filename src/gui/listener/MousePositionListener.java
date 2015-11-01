@@ -12,13 +12,12 @@ public class MousePositionListener implements MouseMotionListener {
         canvasPane = cp;
     }
 
+    @Override
     public void mouseMoved(MouseEvent e) {
-
-        //Display the mouse position coordinates in the status bar in UMLFrame
         canvasPane.displayCoords(e.getX(), e.getY());
-
     }
 
+    @Override
     public void mouseDragged(MouseEvent e) {
 
     }

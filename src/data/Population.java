@@ -24,7 +24,7 @@ public class Population {
     }
 
     // Saves a tour
-    public void saveTour(int index, Tour tour) {
+    void saveTour(int index, Tour tour) {
         tours[index] = tour;
     }
 
@@ -46,7 +46,7 @@ public class Population {
     }
 
     // Gets population size
-    public int populationSize() {
+    int populationSize() {
         return tours.length;
     }
 }

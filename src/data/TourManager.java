@@ -32,11 +32,11 @@ public class TourManager extends ArrayList<City> {
         return cities.size();
     }
 
-    public static void randomlyGenerateCities(int amount) {
+    public static void randomlyGenerateCities(int amount, int maxX, int maxY) {
         Random randomGen = new Random();
         for (int i = 0; i < amount; i++) {
-            int x = randomGen.nextInt(900);
-            int y = randomGen.nextInt(900);
+            int x = randomGen.nextInt(maxX);
+            int y = randomGen.nextInt(maxY);
             City city = new City(x, y);
             addCity(city);
         }

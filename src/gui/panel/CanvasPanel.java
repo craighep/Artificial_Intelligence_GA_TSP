@@ -1,6 +1,7 @@
 package gui.panel;
 
 import data.City;
+import data.Tour;
 import data.TourManager;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,12 +17,30 @@ import javax.swing.*;
 public class CanvasPanel extends JPanel implements ActionListener {
 
     private final StatusPanel statusPane;
+    private JLabel totalLabel = new JLabel("");
+    private JLabel initialLabel = new JLabel("");
+    SpringLayout layout = new SpringLayout();
+    private JSeparator statusSep = new JSeparator(JSeparator.VERTICAL);
 
     public CanvasPanel(StatusPanel sp) {
-
+        SpringLayout layout = new SpringLayout();
+        
         this.setBackground(Color.gray);
-        this.setPreferredSize(new Dimension(900, 900)); //Set size of panel
+        this.setPreferredSize(new Dimension(800, 800)); //Set size of panel
         this.statusPane = sp;
+        
+        //Initialise and add components to panel
+        this.setLayout(layout);
+        this.add(totalLabel);
+        totalLabel.setForeground(Color.white);
+        this.add(initialLabel);
+        initialLabel.setForeground(Color.white);
+
+        layout.putConstraint(SpringLayout.SOUTH, initialLabel, -50, SpringLayout.SOUTH, this);
+        layout.putConstraint(SpringLayout.WEST, initialLabel, 10, SpringLayout.WEST, this);
+        
+        layout.putConstraint(SpringLayout.SOUTH, totalLabel, 30, SpringLayout.SOUTH, initialLabel);
+        layout.putConstraint(SpringLayout.WEST, totalLabel, 10, SpringLayout.WEST, this);
     }
 
     public void exitProgram() {
@@ -44,7 +63,6 @@ public class CanvasPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -55,9 +73,18 @@ public class CanvasPanel extends JPanel implements ActionListener {
             ArrayList<City> cities = TourManager.getAll();
             for (int i = 0; i < cities.size(); i++) {
                 City city = cities.get(i);
-                g2.setPaint(Color.red);
+                g2.setPaint(Color.white);
+                g2.drawString(String.valueOf(city.getID()), city.getX(), city.getY());
+                g2.drawString("[" +city.getX() + "," + city.getY() + "]", city.getX(), city.getY()+30);
+                
+                g2.setPaint(Color.blue);
+                if(i == 0 && TourManager.isSolved())
+                    g2.setPaint(Color.green);
+                if(i == cities.size()-1 && TourManager.isSolved())
+                    g2.setPaint(Color.red);
                 g2.fillOval(city.getX(), city.getY(), 15, 15);
-
+                g2.setPaint(Color.blue);
+                
                 if (TourManager.isSolved() && cities.size() > i + 1) {
                     City nextCity = cities.get(i + 1);
                     Line2D lin = new Line2D.Float(city.getX() + 7, city.getY() + 7, nextCity.getX() + 7, nextCity.getY() + 7);
@@ -66,4 +93,14 @@ public class CanvasPanel extends JPanel implements ActionListener {
             }
         }
     }
+
+    public void showStats(Tour tour) {
+        totalLabel.setText("Total Solution Distance: " + tour.getDistance());
+        initialLabel.setText("Initial Order Distance: " + tour.getInitialDistance());
+    }
+    
+    public void hideStats(){
+        totalLabel.setText("");
+        initialLabel.setText("");
+     }
 }

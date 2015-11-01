@@ -1,6 +1,7 @@
 package gui.listener;
 
 import data.GA;
+import data.Tour;
 import data.TourManager;
 import java.awt.event.*;
 import gui.panel.*;
@@ -21,18 +22,25 @@ public class ButtonListener implements ActionListener {
 
         switch (actionCommand) {
             case "Generate Points":
-                TourManager.randomlyGenerateCities(10);
+                TourManager.clearAll();
+                int generateAmount = ButtonPanel.generateAmount.getValue();
+                TourManager.randomlyGenerateCities(generateAmount, 
+                        canvasPane.getWidth(), canvasPane.getHeight());
                 TourManager.setSolved(false);
+                canvasPane.hideStats();
                 canvasPane.repaint();
                 break;
             case "Solve TSP":
-                GA.calculateTour(TourManager.getAll());
+                Tour solution = GA.calculateTour(TourManager.getAll());
+                TourManager.setAll(solution.getAllInTour()); // Set current tour to solution for repaint
                 TourManager.setSolved(true);
+                canvasPane.showStats(solution);
                 canvasPane.repaint();
                 break;
             case "Clear Points":
                 TourManager.clearAll();
                 TourManager.setSolved(false);
+                canvasPane.hideStats();
                 canvasPane.repaint();
                 break;
             case "Exit Program":
