@@ -9,12 +9,12 @@ import java.util.ArrayList;
 public class GA {
 
     /* GA parameters */
-    private static final double mutationRate = 0.015;
+    private static double mutationRate = 0.015;
     private static final int tournamentSize = 5;
     private static final boolean elitism = true;
 
-    public static Tour calculateTour(ArrayList<City> cities) {
-        
+    public static Tour calculateTour(ArrayList<City> cities, double mutation, int populationEvolution) {
+        mutationRate = mutation;
         // Initialize population
         Population pop = new Population(cities.size(), true);
         int initialDistance = pop.getFittest().getDistance();
@@ -22,11 +22,10 @@ public class GA {
 
         // Evolve population for 1000 generations
         pop = evolvePopulation(pop);
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < populationEvolution; i++) {
             pop = evolvePopulation(pop);
         }
         Tour solution = pop.getFittest();
-
         // Print final results
         System.out.println("Finished");
         System.out.println("Final distance: " + solution.getDistance());

@@ -45,6 +45,10 @@ public class Tour {
     public ArrayList getAllInTour() {
         return tour;
     }
+    
+    public void addCity(City city){
+        tour.add(city);
+    }
 
     // Sets a city in a certain position within a tour
     public void setCity(int tourPosition, City city) {

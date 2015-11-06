@@ -38,7 +38,9 @@ public class MouseInterListener implements MouseListener {
         City city = new City(e.getX(), e.getY());
         TourManager.addCity(city);
         if(TourManager.isSolved()){
-            Tour solution = GA.calculateTour(TourManager.getAll());
+            double mutationRate = Double.valueOf(ButtonPanel.mutationInput.getText());
+            int populationEvolution = Integer.parseInt(ButtonPanel.evolutionInput.getText());
+            Tour solution = GA.calculateTour(TourManager.getAll(), mutationRate, populationEvolution);
             TourManager.setAll(solution.getAllInTour()); // Set current tour to solution for repaint
             canvasPane.showStats(solution);
         }  

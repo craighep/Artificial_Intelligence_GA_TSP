@@ -31,7 +31,9 @@ public class ButtonListener implements ActionListener {
                 canvasPane.repaint();
                 break;
             case "Solve TSP":
-                Tour solution = GA.calculateTour(TourManager.getAll());
+                double mutationRate = Double.valueOf(ButtonPanel.mutationInput.getText());
+                int populationEvolution = Integer.parseInt(ButtonPanel.evolutionInput.getText());
+                Tour solution = GA.calculateTour(TourManager.getAll(), mutationRate, populationEvolution);
                 TourManager.setAll(solution.getAllInTour()); // Set current tour to solution for repaint
                 TourManager.setSolved(true);
                 canvasPane.showStats(solution);

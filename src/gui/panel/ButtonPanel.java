@@ -8,8 +8,12 @@ import java.awt.Color;
 public class ButtonPanel extends JPanel {
 
     private JLabel genLabel = new JLabel("--GA Options--");
+    private JLabel mutationLabel = new JLabel("Mutation Level");
+    private JLabel evolutionLabel = new JLabel("Population evolution");
     private JButton generateButton, clearButton, solveButton;
     public static JSlider generateAmount = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);
+    public static JTextField mutationInput = new JTextField("0.015");
+    public static JTextField evolutionInput = new JTextField("1000");
     private JSeparator titleSep = new JSeparator(JSeparator.HORIZONTAL);
     private JSeparator topSep = new JSeparator(JSeparator.HORIZONTAL);
     private JSeparator bottom = new JSeparator(JSeparator.HORIZONTAL);
@@ -47,7 +51,12 @@ public class ButtonPanel extends JPanel {
         clearButton = new JButton("Clear Points");
         this.add(clearButton);
         clearButton.addActionListener(buttonList);
-
+        
+        this.add(mutationLabel);
+        this.add(mutationInput);
+        this.add(evolutionLabel);
+        this.add(evolutionInput);
+        
         solveButton = new JButton("Solve TSP");
         this.add(solveButton);
         solveButton.addActionListener(buttonList);
@@ -80,7 +89,23 @@ public class ButtonPanel extends JPanel {
         layout.putConstraint(SpringLayout.WEST, bottom, 5, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.EAST, bottom, -5, SpringLayout.EAST, this);
         
-        layout.putConstraint(SpringLayout.NORTH, solveButton, 40, SpringLayout.NORTH, bottom);
+        layout.putConstraint(SpringLayout.NORTH, mutationLabel, 40, SpringLayout.NORTH, bottom);
+        layout.putConstraint(SpringLayout.WEST, mutationLabel, 12, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.EAST, mutationLabel, -12, SpringLayout.EAST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, mutationInput, 20, SpringLayout.NORTH, mutationLabel);
+        layout.putConstraint(SpringLayout.WEST, mutationInput, 12, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.EAST, mutationInput, -12, SpringLayout.EAST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, evolutionLabel, 40, SpringLayout.NORTH, mutationInput);
+        layout.putConstraint(SpringLayout.WEST, evolutionLabel, 12, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.EAST, evolutionLabel, -12, SpringLayout.EAST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, evolutionInput, 20, SpringLayout.NORTH, evolutionLabel);
+        layout.putConstraint(SpringLayout.WEST, evolutionInput, 12, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.EAST, evolutionInput, -12, SpringLayout.EAST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, solveButton, 40, SpringLayout.NORTH, evolutionInput);
         layout.putConstraint(SpringLayout.WEST, solveButton, 12, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.EAST, solveButton, -12, SpringLayout.EAST, this);
 

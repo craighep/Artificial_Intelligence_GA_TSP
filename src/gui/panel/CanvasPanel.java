@@ -76,14 +76,8 @@ public class CanvasPanel extends JPanel implements ActionListener {
                 g2.setPaint(Color.white);
                 g2.drawString(String.valueOf(city.getID()), city.getX(), city.getY());
                 g2.drawString("[" +city.getX() + "," + city.getY() + "]", city.getX(), city.getY()+30);
-                
                 g2.setPaint(Color.blue);
-                if(i == 0 && TourManager.isSolved())
-                    g2.setPaint(Color.green);
-                if(i == cities.size()-1 && TourManager.isSolved())
-                    g2.setPaint(Color.red);
                 g2.fillOval(city.getX(), city.getY(), 15, 15);
-                g2.setPaint(Color.blue);
                 
                 if (TourManager.isSolved() && cities.size() > i + 1) {
                     City nextCity = cities.get(i + 1);
@@ -91,8 +85,14 @@ public class CanvasPanel extends JPanel implements ActionListener {
                     g2.draw(lin);
                 }
             }
-        }
-    }
+            // then draw line back to starting point
+            if(cities.size() > 1 && TourManager.isSolved()){
+                City lastCity = cities.get(cities.size()-1);
+                City firstCity = cities.get(0);
+                Line2D lin = new Line2D.Float(lastCity.getX() + 7, lastCity.getY() + 7, firstCity.getX() + 7, firstCity.getY() + 7);
+                g2.draw(lin);
+            }
+        }    }
 
     public void showStats(Tour tour) {
         totalLabel.setText("Total Solution Distance: " + tour.getDistance());
