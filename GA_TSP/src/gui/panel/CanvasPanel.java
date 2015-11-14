@@ -25,7 +25,7 @@ public class CanvasPanel extends JPanel implements ActionListener {
     public CanvasPanel(StatusPanel sp) {
         SpringLayout layout = new SpringLayout();
         
-        this.setBackground(Color.gray);
+        this.setBackground(Color.white);
         this.setPreferredSize(new Dimension(800, 800)); //Set size of panel
         this.statusPane = sp;
         
@@ -73,7 +73,7 @@ public class CanvasPanel extends JPanel implements ActionListener {
             ArrayList<City> cities = TourManager.getAll();
             for (int i = 0; i < cities.size(); i++) {
                 City city = cities.get(i);
-                g2.setPaint(Color.white);
+                g2.setPaint(Color.black);
                 g2.drawString(String.valueOf(city.getID()), city.getX(), city.getY());
                 g2.drawString("[" +city.getX() + "," + city.getY() + "]", city.getX(), city.getY()+30);
                 g2.setPaint(Color.blue);
