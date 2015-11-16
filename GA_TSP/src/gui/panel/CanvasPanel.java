@@ -32,9 +32,9 @@ public class CanvasPanel extends JPanel implements ActionListener {
         //Initialise and add components to panel
         this.setLayout(layout);
         this.add(totalLabel);
-        totalLabel.setForeground(Color.white);
+        totalLabel.setForeground(Color.red);
         this.add(initialLabel);
-        initialLabel.setForeground(Color.white);
+        initialLabel.setForeground(Color.red);
 
         layout.putConstraint(SpringLayout.SOUTH, initialLabel, -50, SpringLayout.SOUTH, this);
         layout.putConstraint(SpringLayout.WEST, initialLabel, 10, SpringLayout.WEST, this);

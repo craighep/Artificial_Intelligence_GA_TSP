@@ -1,5 +1,6 @@
 package data;
 
+import data.stats.LineChart;
 import java.util.ArrayList;
 
 /*
@@ -19,11 +20,17 @@ public class GA {
         Population pop = new Population(cities.size(), true);
         int initialDistance = pop.getFittest().getDistance();
         System.out.println("Initial distance: " + initialDistance);
-
+        ArrayList<Tour> bestEvolvedTours = new ArrayList<>();
+        ArrayList<Tour> averageEvolvedTours = new ArrayList<>();
+        bestEvolvedTours.add(pop.getFittest());
+        averageEvolvedTours.add(pop.getAverage());
+        
         // Evolve population for 1000 generations
         pop = evolvePopulation(pop);
         for (int i = 0; i < populationEvolution; i++) {
             pop = evolvePopulation(pop);
+            bestEvolvedTours.add(pop.getFittest());
+            averageEvolvedTours.add(pop.getAverage());
         }
         Tour solution = pop.getFittest();
         // Print final results
@@ -31,6 +38,9 @@ public class GA {
         System.out.println("Final distance: " + solution.getDistance());
         System.out.println("Solution:");
         System.out.println(solution);
+        LineChart fitnessChart = new LineChart();
+        fitnessChart.exportDistanceGraph(bestEvolvedTours, averageEvolvedTours);
+        
         solution.setInitialDistance(initialDistance);
         return solution;
     }

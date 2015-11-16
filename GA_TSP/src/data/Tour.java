@@ -98,6 +98,14 @@ public class Tour {
         }
         return distance;
     }
+    
+    public void setDistance(int distance){
+        this.distance = distance;
+    }
+    
+    public void setFitness(double fitness){
+        this.fitness = fitness;
+    }
 
     // Get number of cities on our tour
     public int tourSize() {

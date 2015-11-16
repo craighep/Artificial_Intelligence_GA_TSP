@@ -44,6 +44,21 @@ public class Population {
         }
         return fittest;
     }
+    
+    // Gets a generic average tour
+    public Tour getAverage() {
+        // Loop through individuals to find fittest
+        int distance = 0;
+        double fitness = 0;
+        for (int i = 1; i < populationSize(); i++) {
+            distance += tours[i].getDistance();
+            fitness += tours[i].getFitness();
+        }
+        Tour average = new Tour();
+        average.setDistance(distance);
+        average.setFitness(fitness);
+        return average;
+    }
 
     // Gets population size
     int populationSize() {
