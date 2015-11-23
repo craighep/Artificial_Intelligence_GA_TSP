@@ -48,12 +48,15 @@ Before looking at the possible genetic algorithms to be considered for such a pu
 \item Use the fitness function to select the fitter chromosomes.
 \item Apply the crossover and mutation operators in order. 
 \item If a stopping criterion is satisfied, then stop and output the best chromosome
-\item Go to step 2
+\item Go back to step 2
 \end{enumerate}
 
 \section{Proposed solution}
+The following sub sections of this paper discusses the merits and drawbacks of using certain genetic algorithm selection strategies. Testing the capabilities of GA's using different means of selecting individual chromosomes (or tour solutions in the case of the travelling salesman problem) will allow statics and conclusions to be applied to the respective strategies, and have a higher chance of finding best possible results for the TSP problem. Alongside selection, the concept of elitism is looked at. Elitism may prevent strong solutions being lost on mutation and crossover, and therefore create better, faster-found routes. 
 
-\subsection{Selected and considered GA's}
+\subsection{Selected and considered GA representations}
+As already discussed in the previous section of the paper, most GA's have been based off of older ones such as chromosome representation \cite{5}. For the purpose of this paper, the algorithm used for the TSP will be also based on this algorithm though different aspects such as crossover, mutation and elitism types will be looked at. To keep the algorithm at a simple chromosome state will allow easier implementation of the algorithm in code form, therefore will be easier to manipulate and change specific aspects to allow for statistical research. \par
+The first most important aspects of any genetic algorithm is the crossover and mutation means. A
 
 \subsection{Application structure}
 

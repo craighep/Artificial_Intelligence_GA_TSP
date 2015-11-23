@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.4)  14 NOV 2015 20:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.4)  23 NOV 2015 22:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -312,35 +312,36 @@ Package pdftex.def Info: images/solution.jpg used on input line 39.
 
 
  <./images/problem.jpg> <./images/solution.jpg>]
-Underfull \hbox (badness 3128) in paragraph at lines 73--75
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 3128) in paragraph at lines 76--78
 []\OT1/ptm/m/n/8 E.W. Weis-stein, \OT1/ptm/m/it/8 Hamil-to-nian Cy-cle\OT1/ptm/
 m/n/8 , $\OT1/ptm/m/it/8 http : / / mathworld . wolfram . com /
  []
 
 
-Underfull \hbox (badness 4819) in paragraph at lines 77--79
+Underfull \hbox (badness 4819) in paragraph at lines 80--82
 []\OT1/ptm/m/n/8 D.W. Dyer, \OT1/ptm/m/it/8 When are Evo-lu-tion-ary Al-go-rith
 ms Use-ful?\OT1/ptm/m/n/8 , $\OT1/ptm/m/it/8 http : / /
  []
 
-[2
-
-] (./crh13_SEM6120_A2.aux) ) 
+[2] (./crh13_SEM6120_A2.aux) ) 
 Here is how much of TeX's memory you used:
  3003 strings out of 493054
  45770 string characters out of 6138327
- 114755 words of memory out of 5000000
+ 115755 words of memory out of 5000000
  6500 multiletter control sequences out of 15000+600000
  37948 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,6n,23p,829b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r
-.enc}<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/
-texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2015/texmf
--dist/fonts/type1/urw/times/utmbi8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1
-/urw/times/utmr8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a
-.pfb>
-Output written on crh13_SEM6120_A2.pdf (2 pages, 99583 bytes).
+{c:/texlive/2015/texmf-dist/fonts/enc/dvips/base/
+8r.enc}<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c
+:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2015/tex
+mf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/texlive/2015/texmf-dist/fonts/typ
+e1/urw/times/utmr8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri
+8a.pfb>
+Output written on crh13_SEM6120_A2.pdf (2 pages, 100589 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  22 compressed objects within 1 object stream
