@@ -10,11 +10,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- *
+ * Class holding various population selection algorithms. Currently contains 
+ * Rank, tournament and roulette wheel based selection techniques, all returning
+ * a selected path from a given population.
  * @author Craig
  */
 public class SelectionTool {
 
+    /**
+     * Takes in a population of chromosomes and the selection type, and returns a 
+     * selected path.
+     * @param selectionType
+     * @param pop
+     * @return 
+     */
     public Path performSelection(SelectionType selectionType, Population pop) {
         Path parent;
         switch (selectionType) {

@@ -3,10 +3,7 @@ package data;
 import data.types.SelectionType;
 import data.stats.LineChart;
 import data.types.CrossoverType;
-import static data.types.SelectionType.ROULETTEWHEEL;
-import static data.types.SelectionType.TOURNAMENT;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * The Genetic algorithm for solving the Travelling salesman problem. Selects
