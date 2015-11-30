@@ -3,7 +3,8 @@ package gui.listener;
 import data.GA;
 import data.Path;
 import data.PathSolution;
-import data.SelectionType;
+import data.types.CrossoverType;
+import data.types.SelectionType;
 import java.awt.event.*;
 import gui.panel.*;
 
@@ -47,9 +48,12 @@ public class ButtonListener implements ActionListener {
                 double mutationRate = Double.valueOf(ButtonPanel.mutationInput.getText());
                 int populationEvolution = Integer.parseInt(ButtonPanel.evolutionInput.getText());
                 SelectionType selectionType = SelectionType.fromString(ButtonPanel.selectionType.getSelectedItem().toString());
+                CrossoverType crossoverType = CrossoverType.fromString(ButtonPanel.crossoverType.getSelectedItem().toString());
                 boolean elitism = ButtonPanel.elitsimEnabled.isSelected();
                 GA TSPGeneticAlgorithm = new GA();
-                Path solution = TSPGeneticAlgorithm.calculatePath(PathSolution.getAll(), mutationRate, populationEvolution, elitism, selectionType);
+                Path solution = TSPGeneticAlgorithm.calculatePath(PathSolution.getAll(), 
+                        mutationRate, populationEvolution, elitism, selectionType,
+                        crossoverType);
                 PathSolution.setAll(solution.getAllInPath()); // Set current path to solution for repaint
                 PathSolution.setSolved(true);
                 canvasPane.showStats(solution);

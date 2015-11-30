@@ -1,6 +1,10 @@
 package data;
 
+import data.types.SelectionType;
 import data.stats.LineChart;
+import data.types.CrossoverType;
+import static data.types.SelectionType.ROULETTEWHEEL;
+import static data.types.SelectionType.TOURNAMENT;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -22,13 +26,15 @@ public class GA {
      * @param mutation Rate at which to mutate solutions
      * @param populationEvolution Number of evolutions
      * @param elitsim Elitism toggle
-     * @param selectionType Type of crossover selection
+     * @param selectionType Type of selection
+     * @param crossoverType Type of crossover
      * @return SolutionPath
      */
     public Path calculatePath(ArrayList<City> cities, double mutation,
-            int populationEvolution, boolean elitsim, SelectionType selectionType) {
+            int populationEvolution, boolean elitsim, SelectionType selectionType,
+            CrossoverType crossoverType) {
 
-        Population pop = new Population(cities.size(), true);
+        Population pop = new Population(cities.size(), false);
         int initialDistance = pop.getFittest().getDistance();
         System.out.println("Initial distance: " + initialDistance);
         ArrayList<Path> bestEvolvedPaths = new ArrayList<>();
@@ -38,9 +44,9 @@ public class GA {
 
         long start = System.nanoTime();
         // Start the evolutions, using parameters selected
-        pop = evolvePopulation(pop, elitsim, mutation, selectionType);
+        pop = evolvePopulation(pop, elitsim, mutation, selectionType, crossoverType);
         for (int i = 0; i < populationEvolution; i++) {
-            pop = evolvePopulation(pop, elitsim, mutation, selectionType);
+            pop = evolvePopulation(pop, elitsim, mutation, selectionType, crossoverType);
             bestEvolvedPaths.add(pop.getFittest());
             averageEvolvedPaths.add(pop.getAverage());
         }
@@ -63,131 +69,47 @@ public class GA {
     /**
      * Evolves a population by selecting two parent chromosomes, creating a
      * child and then mutating it based on options passed.
+     *
      * @param pop Current population of paths
      * @param elitism Flag signifying whether to use elitism or not
      * @param mutationRate Chance between 0 and 1 of mutating the current tour
      * @param selectionType Type of selection means
+     * @param crossoverType Type of crossover means
      * @return population
      */
     private Population evolvePopulation(Population pop, boolean elitism,
-            double mutationRate, SelectionType selectionType) {
-        Population newPopulation = new Population(pop.getPopulationSize(), false);
+            double mutationRate, SelectionType selectionType, CrossoverType crossoverType) {
+        Population newPopulation = new Population(pop.getPopulationSize(), true);
 
+        SelectionTool selectionTool = new SelectionTool();
+        CrossoverTool crossoverTool = new CrossoverTool();
+        
         int offset = (elitism) ? 1 : 0;
-        if (elitism)
+        if (elitism) {
             newPopulation.setPath(0, pop.getFittest());
+        }
 
         Path parent1, parent2;
-        for (int i = offset; i < newPopulation.getPopulationSize(); i++) {
-            switch (selectionType) {
-                // Select parents
-                case RANK:
-                    parent1 = rankSelection(pop);
-                    parent2 = rankSelection(pop);
-                    break;
-                case pathNAMENT:
-                    parent1 = tournamentSelection(pop);
-                    parent2 = tournamentSelection(pop);
-                    break;
-                case ROULETTEWHEEL:
-                    parent1 = rouletteWheelSelection(pop);
-                    parent2 = rouletteWheelSelection(pop);
-                    break;
-                default:
-                    parent1 = null;
-                    parent2 = null;
-                    break;
-            }
+        for (int i = offset; i < newPopulation.getPopulationSize();) {
+            // perform selection
+            parent1 = selectionTool.performSelection(selectionType, pop);
+            parent2 = selectionTool.performSelection(selectionType, pop);
+            
             if (parent1 != null && parent2 != null) {
-                Path child = crossover(parent1, parent2);
-                newPopulation.setPath(i, child);
+                // perform crossover
+                Path[] children = crossoverTool.performCrossover(crossoverType ,parent1, parent2);
+                
+                newPopulation.setPath(i++, children[0]);
+                if (i < newPopulation.getPopulationSize()) {
+                    newPopulation.setPath(i++, children[1]);
+                }
             }
         }
+        // mutatate population
         for (int i = offset; i < newPopulation.getPopulationSize(); i++) {
             mutate(newPopulation.getPath(i), mutationRate);
         }
         return newPopulation;
-    }
-
-    /**
-     * Selects a tour from the population using tournament selection using 5 
-     * random paths from the current population.
-     * @param pop Current population of paths
-     * @return path
-     */
-    private Path tournamentSelection(Population pop) {
-        int tournamentSize = 5;
-        Population tournament = new Population(tournamentSize, false);
-        for (int i = 0; i < tournamentSize; i++) {
-            int randomId = (int) (Math.random() * pop.getPopulationSize());
-            tournament.setPath(i, pop.getPath(randomId));
-        }
-        return tournament.getFittest();
-    }
-
-    /**
-     * Selects a tour from the population using roulette wheel selection. A random
-     * number is created 
-     * @param pop Current population of paths
-     * @return path
-     */
-    private Path rouletteWheelSelection(Population pop) {
-        double totalFitness = pop.getTotalFitness();
-        double rouletteBall = Math.random() * totalFitness;
-        for (int i = 0; i < pop.getPopulationSize(); i++) {
-            Path path = pop.getPath(i);
-            rouletteBall -= path.getFitness();
-            if (rouletteBall <= 0) {
-                return path;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Selects a tour from the population using tournament selection using 5 
-     * random paths from the current population.
-     * @param pop Current population of paths
-     * @return path
-     */
-    private Path rankSelection(Population pop) {
-        ArrayList<Path> paths = pop.getAllpaths();
-        Collections.sort(paths);
-        for (int i = 0; i < paths.size(); i++) {
-            Path rankedpath = paths.get(i);
-            rankedpath.setFitness(paths.size() - i);
-            pop.setPath(i, rankedpath);
-        }
-        return rouletteWheelSelection(pop);
-    }
-
-    private Path crossover(Path parent1, Path parent2) {
-        Path child = new Path();
-
-        int startPos = (int) (Math.random() * parent1.pathSize());
-        int endPos = (int) (Math.random() * parent1.pathSize());
-
-        for (int i = 0; i < child.pathSize(); i++) {
-            if (startPos < endPos && i > startPos && i < endPos) {
-                child.setCity(i, parent1.getCity(i));
-            } else if (startPos > endPos) {
-                if (!(i < startPos && i > endPos)) {
-                    child.setCity(i, parent1.getCity(i));
-                }
-            }
-        }
-
-        for (int i = 0; i < parent2.pathSize(); i++) {
-            if (!child.containsCity(parent2.getCity(i))) {
-                for (int ii = 0; ii < child.pathSize(); ii++) {
-                    if (child.getCity(ii) == null) {
-                        child.setCity(ii, parent2.getCity(i));
-                        break;
-                    }
-                }
-            }
-        }
-        return child;
     }
 
     private void mutate(Path path, double mutationRate) {

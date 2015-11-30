@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- saved from url=(0099)http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/Order1CrossoverOperator.aspx -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>
+	Order 1 Crossover Operator Tutorial
+</title><link rel="stylesheet" type="text/css" href="./Order 1 Crossover Operator Tutorial_files/style_init.css"><link rel="stylesheet" type="text/css" href="./Order 1 Crossover Operator Tutorial_files/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="./Order 1 Crossover Operator Tutorial_files/style.css"><link rel="stylesheet" type="text/css" href="./Order 1 Crossover Operator Tutorial_files/prettify.css">
+    <script type="text/javascript" async="" src="./Order 1 Crossover Operator Tutorial_files/ga.js"></script><script src="./Order 1 Crossover Operator Tutorial_files/prettify.js" type="text/javascript"></script><style type="text/css"></style>	
+    <script src="./Order 1 Crossover Operator Tutorial_files/lang-vb.js" type="text/javascript"></script>	
+
+
+    <link href="http://www.rubicite.com/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <script src="./Order 1 Crossover Operator Tutorial_files/jquery.min.js"></script>
+    <script src="./Order 1 Crossover Operator Tutorial_files/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            prettyPrint();
+        });
+    </script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];        _gaq.push(['_setAccount', 'UA-5701550-1']);        _gaq.push(['_trackPageview']);
+        (function () { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+
+<body>
+    <form method="post" action="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/Order1CrossoverOperator.aspx" id="ctl01">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTIxNDY5Njg2NGRkJ91taVoYGOkin84EN6McyfVx00R5jo9mtvTY68W3/dI=">
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F0309A1F">
+</div>
+       
+        <div class="container">
+
+            <div class="hidden-xs hidden-ms" style="margin-bottom: 12px; margin-top: 8px; opacity: 0.7;">
+                <img src="./Order 1 Crossover Operator Tutorial_files/Rubicite_Logo_BK.png">
+            </div>
+
+            <div id="rubicite-menu" class="navbar navbar-default " role="navigation">
+                <div class="navbar-header" style="text-align: center;">
+
+                    <div class="hidden-sm hidden-md hidden-lg" style="float: left; opacity: 0.7;">
+                        <img src="./Order 1 Crossover Operator Tutorial_files/Rubicite_Logo_BK.png" style="margin-top: 6px; margin-bottom: 6px; width: 150px;">
+                    </div>
+
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder" style="position: relative; top: 8px;"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>                                        
+                </div>
+                <div class="collapse navbar-collapse navbar-menubuilder">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="http://www.rubicite.com/">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="http://www.rubicite.com/contact.aspx">Contact</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+
+                <div style="clear: both;"></div>
+                <div class="hidden-xs hidden-ms" style="height: 2px; background-color: silver; position: relative; top: -10px; clear: both;"></div>
+                <div class="hidden-sm hidden-md hidden-lg" style="height: 2px; background-color: silver; position: relative; clear: both;"></div>
+            </div>
+
+
+            
+
+    <div style="min-width: 960px;">
+
+        
+
+            <div style="float: left; margin-right: 20px;">
+                <p><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms.aspx">Genetic Algorithm Info</a></p>
+                <ul>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/SelectionBias.aspx">Selection Bias</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/HardProblems.aspx">Hard Problems</a></li>
+                </ul>
+
+                <p>Crossover Operators</p>
+                <ul>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/Order1CrossoverOperator.aspx">Order 1</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/CycleCrossoverOperator.aspx">Cycle</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/EdgeRecombinationCrossoverOperator.aspx">Edge Recombination</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/PMXCrossoverOperator.aspx">PMX</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/OrderMultipleCrossoverOperator.aspx">Order Multiple</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/DirectInsertionCrossoverOperator.aspx">Direct Insertion</a></li>
+                </ul>
+                <p>Mutation Operators</p>
+                <ul>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/MutationOperators/InversionMutationOperator.aspx">Inversion</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/MutationOperators/RandomSlideMutationOperator.aspx">Random Slide</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/MutationOperators/InsertionMutationOperator.aspx">Insertion</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/MutationOperators/SingleSwapMutationOperator.aspx">Single Swap</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/MutationOperators/RandomSwapMutationOperator.aspx">Random Swap</a></li>
+                    <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/MutationOperators/ScrambleMutationOperator.aspx">Scramble</a></li>
+                </ul>
+            </div>
+
+
+        <p style="text-align: justify;"><strong>Order 1 Crossover&nbsp;</strong><br>
+        Order 1 Crossover is a fairly simple permutation crossover. Basically, a swath of consecutive alleles from parent 1 drops down, and remaining values are placed in the child in the order which they appear in parent 2.</p>
+        <p style="text-align: justify;"><span style="font-family: &#39;courier new&#39;;">Parent 1: 8 4 7&nbsp;<span style="text-decoration: underline;">3 6 2 5 1</span>&nbsp;9 0<br>
+        Parent 2:&nbsp;<span style="color: #008000;">0&nbsp;</span><span style="text-decoration: line-through;">1</span>&nbsp;<span style="text-decoration: line-through;">2</span>&nbsp;<span style="text-decoration: line-through;">3</span>&nbsp;<span style="color: #ff0000;">4</span>&nbsp;<span style="text-decoration: line-through;">5</span>&nbsp;<span style="text-decoration: line-through;">6</span>&nbsp;<span style="color: #ff33cc;">7</span>&nbsp;<span style="color: #0000ff;"><strong>8</strong>&nbsp;9</span></span></p>
+        <p style="text-align: justify;"><span style="font-family: &#39;courier new&#39;;">Child 1:&nbsp;&nbsp;<span style="color: #008000;">0</span>&nbsp;<span style="color: #ff0000;">4&nbsp;</span><span style="color: #ff33cc;">7</span>&nbsp;<span style="text-decoration: underline;">3 6 2 5 1</span>&nbsp;<span style="color: #0000ff;">8 9</span></span></p>
+        <p style="text-align: justify;">Step 1: Select a random swath of consecutive alleles from parent 1. (underlined)</p>
+        <p style="text-align: justify;">Step 2: Drop the swath down to Child 1 and mark out these alleles in Parent 2.</p>
+        <p>Step 3: Starting on the right side of the swath, grab alleles from parent 2 and insert them in Child 1 at the right edge of the swath. Since 8 is in that position in Parent 2, it is inserted into Child 1 first at the right edge of the swath. Notice that alleles 1, 2 and 3 are skipped because they are marked out and 4 is inserted into the 2nd spot in Child 1.</p>
+        <p>Step 4: If you desire a second child from the two parents, flip Parent 1 and Parent 2 and go back to Step 1.</p>
+        <p><strong>Order 1 Performance<br>
+        </strong>Order 1 crossover is perhaps the fastest of all crossover operators because it requires virtually no overhead operations. On a generation by generation basis, edge recombination typically outperforms Order 1, but the fact that Order 1 runs between 100 and 1000 times faster usually allows the processing of more generations in a given time period.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <pre class="prettyprint lang-vb" style="overflow: auto;"><span class="kwd">Public</span><span class="pln"> </span><span class="kwd">Sub</span><span class="pln"> Permutation_Order_1</span><span class="pun">(</span><span class="kwd">ByRef</span><span class="pln"> Child1 </span><span class="kwd">As</span><span class="pln"> PChromo</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">ByRef</span><span class="pln"> Child2 </span><span class="kwd">As</span><span class="pln"> PChromo</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">ByRef</span><span class="pln"> Parent1 </span><span class="kwd">As</span><span class="pln"> PChromo</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">ByRef</span><span class="pln"> Parent2 </span><span class="kwd">As</span><span class="pln"> PChromo</span><span class="pun">)</span><span class="pln">
+            </span><span class="com">'Crossover parents i and i + 1 </span><span class="pln">
+            </span><span class="kwd">Dim</span><span class="pln"> HS1 </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">New</span><span class="pln"> Hashtable
+            </span><span class="kwd">Dim</span><span class="pln"> Hs2 </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">New</span><span class="pln"> Hashtable
+            </span><span class="kwd">Dim</span><span class="pln"> iTemp </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">Integer</span><span class="pln">
+
+            </span><span class="com">'*** Debug</span><span class="pln">
+            </span><span class="com">'Dim DString As String</span><span class="pln">
+            </span><span class="com">'For k As Integer = 0 To AlleleCount - 1</span><span class="pln">
+            </span><span class="com">'    DString &amp;= vbTab &amp; parent1.Alleles(k)</span><span class="pln">
+            </span><span class="com">'Next</span><span class="pln">
+            </span><span class="com">'DString &amp;= vbCrLf</span><span class="pln">
+            </span><span class="com">'For k As Integer = 0 To AlleleCount - 1</span><span class="pln">
+            </span><span class="com">'    DString &amp;= vbTab &amp; parent2.Alleles(k)</span><span class="pln">
+            </span><span class="com">'Next</span><span class="pln">
+
+            </span><span class="com">'The first step is to pick out a set of consecutive indices for each parent</span><span class="pln">
+            </span><span class="com">'X is the left-most  index of the set</span><span class="pln">
+            </span><span class="com">'Y is the right-most index of the set</span><span class="pln">
+            </span><span class="kwd">Dim</span><span class="pln"> X </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">Integer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> RAND</span><span class="pun">.</span><span class="kwd">Next</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> AlleleCount</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">Dim</span><span class="pln"> Y </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">Integer</span><span class="pln">
+            </span><span class="kwd">Do</span><span class="pln">
+                Y </span><span class="pun">=</span><span class="pln"> RAND</span><span class="pun">.</span><span class="kwd">Next</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> AlleleCount</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">Loop</span><span class="pln"> </span><span class="kwd">Until</span><span class="pln"> Y </span><span class="pun">&lt;&gt;</span><span class="pln"> X
+            </span><span class="kwd">If</span><span class="pln"> X </span><span class="pun">&gt;</span><span class="pln"> Y </span><span class="kwd">Then</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> iTemp </span><span class="pun">=</span><span class="pln"> X </span><span class="pun">:</span><span class="pln"> X </span><span class="pun">=</span><span class="pln"> Y </span><span class="pun">:</span><span class="pln"> Y </span><span class="pun">=</span><span class="pln"> iTemp </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">End</span><span class="pln"> </span><span class="kwd">If</span><span class="pln">
+
+            </span><span class="com">'Fill Childrenz from index X to index Y of parents</span><span class="pln">
+            </span><span class="kwd">For</span><span class="pln"> j </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">Integer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> X </span><span class="kwd">To</span><span class="pln"> Y
+                Child1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> Parent1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">)</span><span class="pln">
+                HS1</span><span class="pun">.</span><span class="pln">Add</span><span class="pun">(</span><span class="pln">Parent1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">),</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">)</span><span class="pln">
+                Child2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> Parent2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">)</span><span class="pln">
+                Hs2</span><span class="pun">.</span><span class="pln">Add</span><span class="pun">(</span><span class="pln">Parent2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">),</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">Next</span><span class="pln">
+
+            </span><span class="com">'Fill in the rest of Child 1</span><span class="pln">
+            </span><span class="com">' - The term 'order' comes into play here</span><span class="pln">
+            </span><span class="com">'     We order the remaining values based upon their position in the opposite parent</span><span class="pln">
+            </span><span class="com">'     So, we'll order the remaining values for child 1 based upon their relative order in parent 2</span><span class="pln">
+            </span><span class="com">'     Also, the ordering starts after the set of consecutive indexes, otherwise the order starts at Y + 1</span><span class="pln">
+            </span><span class="com">'     Going to use 2 loops to do it</span><span class="pln">
+            </span><span class="com">'     marker marks the position in the child to insert the next value from the parent</span><span class="pln">
+
+            </span><span class="com">'From Y+1 to the end of Parent2</span><span class="pln">
+            </span><span class="kwd">Dim</span><span class="pln"> marker </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">Integer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> Y </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">If</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> AlleleCount </span><span class="kwd">Then</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="com">'if marker is too high, wrap it around</span><span class="pln">
+            </span><span class="kwd">For</span><span class="pln"> j </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">Integer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> Y </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="kwd">To</span><span class="pln"> AlleleCount </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+                </span><span class="kwd">If</span><span class="pln"> </span><span class="kwd">Not</span><span class="pln"> HS1</span><span class="pun">.</span><span class="pln">Contains</span><span class="pun">(</span><span class="pln">Parent2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">))</span><span class="pln"> </span><span class="kwd">Then</span><span class="pln">
+                    Child1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">marker</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> Parent2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">)</span><span class="pln">
+                    HS1</span><span class="pun">.</span><span class="pln">Add</span><span class="pun">(</span><span class="pln">Parent2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">),</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">)</span><span class="pln">
+                    marker </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+                    </span><span class="kwd">If</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> AlleleCount </span><span class="kwd">Then</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="com">'if marker is too high, wrap it around</span><span class="pln">
+                </span><span class="kwd">End</span><span class="pln"> </span><span class="kwd">If</span><span class="pln">
+            </span><span class="kwd">Next</span><span class="pln">
+            </span><span class="com">'From 0 to Y for Child 1 - Values coming from Parent2</span><span class="pln">
+            </span><span class="kwd">For</span><span class="pln"> j </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">Integer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="kwd">To</span><span class="pln"> Y
+                </span><span class="kwd">If</span><span class="pln"> </span><span class="kwd">Not</span><span class="pln"> HS1</span><span class="pun">.</span><span class="pln">Contains</span><span class="pun">(</span><span class="pln">Parent2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">))</span><span class="pln"> </span><span class="kwd">Then</span><span class="pln">
+                    Child1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">marker</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> Parent2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">)</span><span class="pln">
+                    HS1</span><span class="pun">.</span><span class="pln">Add</span><span class="pun">(</span><span class="pln">Parent2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">),</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">)</span><span class="pln">
+                    marker </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+                    </span><span class="kwd">If</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> AlleleCount </span><span class="kwd">Then</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="com">'if marker is too high, wrap it around</span><span class="pln">
+                </span><span class="kwd">End</span><span class="pln"> </span><span class="kwd">If</span><span class="pln">
+            </span><span class="kwd">Next</span><span class="pln">
+
+            </span><span class="com">'Fill in the rest of Child 2 - Values coming from Parent1</span><span class="pln">
+            </span><span class="com">'From Y + 1 to the end of Parent1</span><span class="pln">
+            marker </span><span class="pun">=</span><span class="pln"> Y </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">If</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> AlleleCount </span><span class="kwd">Then</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="com">' if marker is too high, wrap it around</span><span class="pln">
+            </span><span class="kwd">For</span><span class="pln"> j </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">Integer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> Y </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="kwd">To</span><span class="pln"> AlleleCount </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+                </span><span class="kwd">If</span><span class="pln"> </span><span class="kwd">Not</span><span class="pln"> Hs2</span><span class="pun">.</span><span class="pln">Contains</span><span class="pun">(</span><span class="pln">Parent1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">))</span><span class="pln"> </span><span class="kwd">Then</span><span class="pln">
+                    Child2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">marker</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> Parent1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">)</span><span class="pln">
+                    Hs2</span><span class="pun">.</span><span class="pln">Add</span><span class="pun">(</span><span class="pln">Parent1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">),</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">)</span><span class="pln">
+                    marker </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+                    </span><span class="kwd">If</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> AlleleCount </span><span class="kwd">Then</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="com">'if marker is too high, wrap it around</span><span class="pln">
+                </span><span class="kwd">End</span><span class="pln"> </span><span class="kwd">If</span><span class="pln">
+            </span><span class="kwd">Next</span><span class="pln">
+            </span><span class="com">'from 0 to Y for child 2 - values coming from parent 1</span><span class="pln">
+            </span><span class="kwd">For</span><span class="pln"> j </span><span class="kwd">As</span><span class="pln"> </span><span class="kwd">Integer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="kwd">To</span><span class="pln"> Y
+                </span><span class="kwd">If</span><span class="pln"> </span><span class="kwd">Not</span><span class="pln"> Hs2</span><span class="pun">.</span><span class="pln">Contains</span><span class="pun">(</span><span class="pln">Parent1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">))</span><span class="pln"> </span><span class="kwd">Then</span><span class="pln">
+                    Child2</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">marker</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> Parent1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">)</span><span class="pln">
+                    Hs2</span><span class="pun">.</span><span class="pln">Add</span><span class="pun">(</span><span class="pln">Parent1</span><span class="pun">.</span><span class="pln">Alleles</span><span class="pun">(</span><span class="pln">j</span><span class="pun">),</span><span class="pln"> </span><span class="lit">Nothing</span><span class="pun">)</span><span class="pln">
+                    marker </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+                    </span><span class="kwd">If</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> AlleleCount </span><span class="kwd">Then</span><span class="pln"> marker </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="com">'if marker is too high, wrap it around</span><span class="pln">
+                </span><span class="kwd">End</span><span class="pln"> </span><span class="kwd">If</span><span class="pln">
+            </span><span class="kwd">Next</span><span class="pln">
+
+            </span><span class="com">'DString &amp;= vbCrLf</span><span class="pln">
+            </span><span class="com">'For k As Integer = 0 To AlleleCount - 1</span><span class="pln">
+            </span><span class="com">'    DString &amp;= vbTab &amp; Child1.Alleles(k)</span><span class="pln">
+            </span><span class="com">'Next</span><span class="pln">
+            </span><span class="com">'DString &amp;= vbCrLf</span><span class="pln">
+            </span><span class="com">'For k As Integer = 0 To AlleleCount - 1</span><span class="pln">
+            </span><span class="com">'    DString &amp;= vbTab &amp; Child2.Alleles(k)</span><span class="pln">
+            </span><span class="com">'Next</span><span class="pln">
+
+            </span><span class="com">'DString &amp;= vbCrLf &amp; "X: " &amp; X &amp; " Y: " &amp; Y &amp; vbCrLf</span><span class="pln">
+
+            </span><span class="com">' MsgBox(DString)</span><span class="pln">
+        </span><span class="kwd">End</span><span class="pln"> </span><span class="kwd">Sub</span><span class="pln">
+        </span></pre>
+
+
+
+    </div>
+
+
+
+            <div style="height: 300px;"></div>
+        </div>
+
+    </form>
+
+
+</body></html>

@@ -1,4 +1,4 @@
-package data;
+package data.types;
 
 /**
  * Represents the different selection types.
@@ -6,20 +6,8 @@ package data;
  * @author Craig
  */
 public enum SelectionType {
-
-    /**
-     *
-     */
-    pathNAMENT("Tournament"),
-
-    /**
-     *
-     */
+    TOURNAMENT("Tournament"),
     ROULETTEWHEEL("Roulette Wheel"),
-
-    /**
-     *
-     */
     RANK("Rank");
     
     private String name = "";

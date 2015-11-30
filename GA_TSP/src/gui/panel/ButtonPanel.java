@@ -1,6 +1,7 @@
 package gui.panel;
 
-import data.SelectionType;
+import data.types.CrossoverType;
+import data.types.SelectionType;
 import gui.listener.ButtonListener;
 import javax.swing.*;
 import java.awt.Color;
@@ -17,14 +18,17 @@ public class ButtonPanel extends JPanel {
     private JLabel mutationLabel = new JLabel("Mutation Rate");
     private JLabel evolutionLabel = new JLabel("Population Evolution");
     private JLabel selectionLabel = new JLabel("Selection Type");
+    private JLabel crossoverLabel = new JLabel("Crossover Type");
     private JButton generateButton, clearButton, solveButton;
 
     public static JSlider generateAmount = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);
     public static JTextField mutationInput = new JTextField("0.015");
     public static JTextField evolutionInput = new JTextField("1000");
     public static JComboBox selectionType = new JComboBox(new String[] {
-        SelectionType.RANK.getName(), SelectionType.pathNAMENT.getName(), 
+        SelectionType.RANK.getName(), SelectionType.TOURNAMENT.getName(), 
         SelectionType.ROULETTEWHEEL.getName()});
+    public static JComboBox crossoverType = new JComboBox(new String[] {
+        CrossoverType.ORDERED.getName(), CrossoverType.UNIFORM.getName()});
     
     public static JCheckBox elitsimEnabled = new JCheckBox("Elitism Enabled", false);
     private JSeparator titleSep = new JSeparator(JSeparator.HORIZONTAL);
@@ -76,6 +80,8 @@ public class ButtonPanel extends JPanel {
         this.add(evolutionInput);
         this.add(selectionLabel);
         this.add(selectionType);
+        this.add(crossoverLabel);
+        this.add(crossoverType);
         this.add(elitsimEnabled);
         
         solveButton = new JButton("Solve TSP");
@@ -134,7 +140,15 @@ public class ButtonPanel extends JPanel {
         layout.putConstraint(SpringLayout.WEST, selectionType, 12, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.EAST, selectionType, -12, SpringLayout.EAST, this);
         
-        layout.putConstraint(SpringLayout.NORTH, elitsimEnabled, 40, SpringLayout.NORTH, selectionType);
+        layout.putConstraint(SpringLayout.NORTH, crossoverLabel, 40, SpringLayout.NORTH, selectionType);
+        layout.putConstraint(SpringLayout.WEST, crossoverLabel, 12, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.EAST, crossoverLabel, -12, SpringLayout.EAST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, crossoverType, 20, SpringLayout.NORTH, crossoverLabel);
+        layout.putConstraint(SpringLayout.WEST, crossoverType, 12, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.EAST, crossoverType, -12, SpringLayout.EAST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, elitsimEnabled, 40, SpringLayout.NORTH, crossoverType);
         layout.putConstraint(SpringLayout.WEST, elitsimEnabled, 12, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.EAST, elitsimEnabled, -12, SpringLayout.EAST, this);
         

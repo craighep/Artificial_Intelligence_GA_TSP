@@ -1,0 +1,61 @@
+﻿body, p {
+    font-size: 16px;
+}
+
+#rubicite-menu.navbar-default .navbar-brand {
+    color: rgba(119, 119, 119, 1);
+}
+#rubicite-menu.navbar-default {
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 1);
+    border-width: 0px;
+    border-radius: 0px;
+}
+#rubicite-menu.navbar-default .navbar-nav > li > a {
+    color: rgba(119, 119, 119, 1);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+
+#rubicite-menu.navbar-default .navbar-nav > li > a:hover,
+#rubicite-menu.navbar-default .navbar-nav > li > a:focus {
+    color: red;
+    background-color: none;
+}
+
+#rubicite-menu.navbar-default .navbar-nav > li:first-child > a {
+    padding-left: 0px;
+}
+
+@media only screen and (max-width: 979px) {
+    #rubicite-menu.navbar-default .navbar-nav > li:first-child > a {
+        padding-left: 15px;
+    }
+}
+
+
+#rubicite-menu.navbar-default .navbar-nav > .active > a,
+#rubicite-menu.navbar-default .navbar-nav > .active > a:hover,
+#rubicite-menu.navbar-default .navbar-nav > .active > a:focus {
+    color: rgba(85, 85, 85, 1);
+    background-color: rgba(117, 117, 117, 1);
+}
+#rubicite-menu.navbar-default .navbar-toggle {
+    border-color: #757575;
+}
+#rubicite-menu.navbar-default .navbar-toggle:hover,
+#rubicite-menu.navbar-default .navbar-toggle:focus {
+    background-color: #757575;
+}
+#rubicite-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #757575;
+}
+#rubicite-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#rubicite-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #ffffff;
+}
+
+.navbar-collapse {
+    padding-left: 0px;
+}
