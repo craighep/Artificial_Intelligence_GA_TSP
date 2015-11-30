@@ -1,8 +1,8 @@
 package data;
-
-/*
- * City.java
- * Models a city
+/**
+ * A node on the travelling salesman path. Holds the x and y coordinates of
+ * the city, and the ID for identifying the position in a solution.
+ * @author Craig
  */
 public class City {
 
@@ -10,33 +10,49 @@ public class City {
     private int y;
     private int id;
 
-    // Constructs a city at chosen x, y location
+    /**
+     * Constructs a new city with location x and y.
+     * @param x x coord
+     * @param y y coord
+     */
     public City(int x, int y) {
         this.x = x;
         this.y = y;
-        this.id = TourManager.numberOfCities()+1;
+        this.id = PathSolution.getSize()+1;
     }
 
-    // Gets city's x coordinate
+    /**
+     * Returns the x coordinate.
+     * @return x
+     */
     public int getX() {
         return this.x;
     }
 
-    // Gets city's y coordinate
+    /**
+     * Returns the y coordinate.
+     * @return y
+     */
     public int getY() {
         return this.y;
     }
     
+    /**
+     * Returns the ID of the coordinate.
+     * @return ID
+     */
     public int getID() {
         return this.id;
     }
 
-    // Gets the distance to given city
-    public double distanceTo(City city) {
-        int xDistance = Math.abs(getX() - city.getX());
-        int yDistance = Math.abs(getY() - city.getY());
-        double distance = Math.sqrt((xDistance * xDistance) + (yDistance * yDistance));
-
-        return distance;
+    /**
+     * Calculates the distance between cities using Pythagoras' theorem.
+     * @param city City to calculate distance from
+     * @return distance 
+     */
+    public double getDistanceBetween(City city) {
+        int xDistance = Math.abs(this.x-city.getX());
+        int yDistance = Math.abs(this.y-city.getY());
+        return Math.sqrt((xDistance * xDistance) + (yDistance * yDistance));
     }
 }

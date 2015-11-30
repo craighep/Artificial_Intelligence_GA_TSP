@@ -2,110 +2,184 @@ package data;
 
 import data.stats.LineChart;
 import java.util.ArrayList;
+import java.util.Collections;
 
-/*
- * GA.java
- * Manages algorithms for evolving population
+/**
+ * The Genetic algorithm for solving the Travelling salesman problem. Selects
+ * chromosomes, evolves and mutates them to find the best possible solution
+ * depending on the selection technique chosen.
+ *
+ * @author Craig
  */
 public class GA {
 
-    /* GA parameters */
-    private static double mutationRate = 0.015;
-    private static final int tournamentSize = 5;
-    private static final boolean elitism = true;
+    /**
+     * Takes an array of cities to be visited and generates a solution to the
+     * travelling salesman problem. Takes additional parameters to change how
+     * the GA works, and also produces graphs and statistics.
+     *
+     * @param cities List of cities
+     * @param mutation Rate at which to mutate solutions
+     * @param populationEvolution Number of evolutions
+     * @param elitsim Elitism toggle
+     * @param selectionType Type of crossover selection
+     * @return SolutionPath
+     */
+    public Path calculatePath(ArrayList<City> cities, double mutation,
+            int populationEvolution, boolean elitsim, SelectionType selectionType) {
 
-    public static Tour calculateTour(ArrayList<City> cities, double mutation, int populationEvolution) {
-        mutationRate = mutation;
-        // Initialize population
         Population pop = new Population(cities.size(), true);
         int initialDistance = pop.getFittest().getDistance();
         System.out.println("Initial distance: " + initialDistance);
-        ArrayList<Tour> bestEvolvedTours = new ArrayList<>();
-        ArrayList<Tour> averageEvolvedTours = new ArrayList<>();
-        bestEvolvedTours.add(pop.getFittest());
-        averageEvolvedTours.add(pop.getAverage());
-        
-        // Evolve population for 1000 generations
-        pop = evolvePopulation(pop);
+        ArrayList<Path> bestEvolvedPaths = new ArrayList<>();
+        ArrayList<Path> averageEvolvedPaths = new ArrayList<>();
+        bestEvolvedPaths.add(pop.getFittest());
+        averageEvolvedPaths.add(pop.getAverage());
+
+        long start = System.nanoTime();
+        // Start the evolutions, using parameters selected
+        pop = evolvePopulation(pop, elitsim, mutation, selectionType);
         for (int i = 0; i < populationEvolution; i++) {
-            pop = evolvePopulation(pop);
-            bestEvolvedTours.add(pop.getFittest());
-            averageEvolvedTours.add(pop.getAverage());
+            pop = evolvePopulation(pop, elitsim, mutation, selectionType);
+            bestEvolvedPaths.add(pop.getFittest());
+            averageEvolvedPaths.add(pop.getAverage());
         }
-        Tour solution = pop.getFittest();
+        Path solution = pop.getFittest();
+
         // Print final results
+        long end = System.nanoTime();
+        System.out.println("Took: " + ((end - start) / 1000000) + "ms");
         System.out.println("Finished");
         System.out.println("Final distance: " + solution.getDistance());
-        System.out.println("Solution:");
-        System.out.println(solution);
         LineChart fitnessChart = new LineChart();
-        fitnessChart.exportDistanceGraph(bestEvolvedTours, averageEvolvedTours);
-        
+
+        // Export statitics to graphs
+        fitnessChart.exportDistanceGraph(bestEvolvedPaths, averageEvolvedPaths);
+
         solution.setInitialDistance(initialDistance);
         return solution;
     }
 
-    // Evolves a population over one generation
-    public static Population evolvePopulation(Population pop) {
-        Population newPopulation = new Population(pop.populationSize(), false);
+    /**
+     * Evolves a population by selecting two parent chromosomes, creating a
+     * child and then mutating it based on options passed.
+     * @param pop Current population of paths
+     * @param elitism Flag signifying whether to use elitism or not
+     * @param mutationRate Chance between 0 and 1 of mutating the current tour
+     * @param selectionType Type of selection means
+     * @return population
+     */
+    private Population evolvePopulation(Population pop, boolean elitism,
+            double mutationRate, SelectionType selectionType) {
+        Population newPopulation = new Population(pop.getPopulationSize(), false);
 
-        // Keep our best individual if elitism is enabled
-        int elitismOffset = 0;
-        if (elitism) {
-            newPopulation.saveTour(0, pop.getFittest());
-            elitismOffset = 1;
+        int offset = (elitism) ? 1 : 0;
+        if (elitism)
+            newPopulation.setPath(0, pop.getFittest());
+
+        Path parent1, parent2;
+        for (int i = offset; i < newPopulation.getPopulationSize(); i++) {
+            switch (selectionType) {
+                // Select parents
+                case RANK:
+                    parent1 = rankSelection(pop);
+                    parent2 = rankSelection(pop);
+                    break;
+                case pathNAMENT:
+                    parent1 = tournamentSelection(pop);
+                    parent2 = tournamentSelection(pop);
+                    break;
+                case ROULETTEWHEEL:
+                    parent1 = rouletteWheelSelection(pop);
+                    parent2 = rouletteWheelSelection(pop);
+                    break;
+                default:
+                    parent1 = null;
+                    parent2 = null;
+                    break;
+            }
+            if (parent1 != null && parent2 != null) {
+                Path child = crossover(parent1, parent2);
+                newPopulation.setPath(i, child);
+            }
         }
-
-        // Crossover population
-        // Loop over the new population's size and create individuals from
-        // Current population
-        for (int i = elitismOffset; i < newPopulation.populationSize(); i++) {
-            // Select parents
-            Tour parent1 = tournamentSelection(pop);
-            Tour parent2 = tournamentSelection(pop);
-            // Crossover parents
-            Tour child = crossover(parent1, parent2);
-            // Add child to new population
-            newPopulation.saveTour(i, child);
+        for (int i = offset; i < newPopulation.getPopulationSize(); i++) {
+            mutate(newPopulation.getPath(i), mutationRate);
         }
-
-        // Mutate the new population a bit to add some new genetic material
-        for (int i = elitismOffset; i < newPopulation.populationSize(); i++) {
-            mutate(newPopulation.getTour(i));
-        }
-
         return newPopulation;
     }
 
-    // Applies crossover to a set of parents and creates offspring
-    public static Tour crossover(Tour parent1, Tour parent2) {
-        // Create new child tour
-        Tour child = new Tour();
+    /**
+     * Selects a tour from the population using tournament selection using 5 
+     * random paths from the current population.
+     * @param pop Current population of paths
+     * @return path
+     */
+    private Path tournamentSelection(Population pop) {
+        int tournamentSize = 5;
+        Population tournament = new Population(tournamentSize, false);
+        for (int i = 0; i < tournamentSize; i++) {
+            int randomId = (int) (Math.random() * pop.getPopulationSize());
+            tournament.setPath(i, pop.getPath(randomId));
+        }
+        return tournament.getFittest();
+    }
 
-        // Get start and end sub tour positions for parent1's tour
-        int startPos = (int) (Math.random() * parent1.tourSize());
-        int endPos = (int) (Math.random() * parent1.tourSize());
+    /**
+     * Selects a tour from the population using roulette wheel selection. A random
+     * number is created 
+     * @param pop Current population of paths
+     * @return path
+     */
+    private Path rouletteWheelSelection(Population pop) {
+        double totalFitness = pop.getTotalFitness();
+        double rouletteBall = Math.random() * totalFitness;
+        for (int i = 0; i < pop.getPopulationSize(); i++) {
+            Path path = pop.getPath(i);
+            rouletteBall -= path.getFitness();
+            if (rouletteBall <= 0) {
+                return path;
+            }
+        }
+        return null;
+    }
 
-        // Loop and add the sub tour from parent1 to our child
-        for (int i = 0; i < child.tourSize(); i++) {
-            // If our start position is less than the end position
+    /**
+     * Selects a tour from the population using tournament selection using 5 
+     * random paths from the current population.
+     * @param pop Current population of paths
+     * @return path
+     */
+    private Path rankSelection(Population pop) {
+        ArrayList<Path> paths = pop.getAllpaths();
+        Collections.sort(paths);
+        for (int i = 0; i < paths.size(); i++) {
+            Path rankedpath = paths.get(i);
+            rankedpath.setFitness(paths.size() - i);
+            pop.setPath(i, rankedpath);
+        }
+        return rouletteWheelSelection(pop);
+    }
+
+    private Path crossover(Path parent1, Path parent2) {
+        Path child = new Path();
+
+        int startPos = (int) (Math.random() * parent1.pathSize());
+        int endPos = (int) (Math.random() * parent1.pathSize());
+
+        for (int i = 0; i < child.pathSize(); i++) {
             if (startPos < endPos && i > startPos && i < endPos) {
                 child.setCity(i, parent1.getCity(i));
-            } // If our start position is larger
-            else if (startPos > endPos) {
+            } else if (startPos > endPos) {
                 if (!(i < startPos && i > endPos)) {
                     child.setCity(i, parent1.getCity(i));
                 }
             }
         }
 
-        // Loop through parent2's city tour
-        for (int i = 0; i < parent2.tourSize(); i++) {
-            // If child doesn't have the city add it
+        for (int i = 0; i < parent2.pathSize(); i++) {
             if (!child.containsCity(parent2.getCity(i))) {
-                // Loop to find a spare position in the child's tour
-                for (int ii = 0; ii < child.tourSize(); ii++) {
-                    // Spare position found, add city
+                for (int ii = 0; ii < child.pathSize(); ii++) {
                     if (child.getCity(ii) == null) {
                         child.setCity(ii, parent2.getCity(i));
                         break;
@@ -116,38 +190,18 @@ public class GA {
         return child;
     }
 
-    // Mutate a tour using swap mutation
-    private static void mutate(Tour tour) {
-        // Loop through tour cities
-        for (int tourPos1 = 0; tourPos1 < tour.tourSize(); tourPos1++) {
-            // Apply mutation rate
+    private void mutate(Path path, double mutationRate) {
+        for (int pathPos1 = 0; pathPos1 < path.pathSize(); pathPos1++) {
             if (Math.random() < mutationRate) {
-                // Get a second random position in the tour
-                int tourPos2 = (int) (tour.tourSize() * Math.random());
+                int pathPos2 = (int) (path.pathSize() * Math.random());
 
-                // Get the cities at target position in tour
-                City city1 = tour.getCity(tourPos1);
-                City city2 = tour.getCity(tourPos2);
+                City city1 = path.getCity(pathPos1);
+                City city2 = path.getCity(pathPos2);
 
                 // Swap them around
-                tour.setCity(tourPos2, city1);
-                tour.setCity(tourPos1, city2);
+                path.setCity(pathPos2, city1);
+                path.setCity(pathPos1, city2);
             }
         }
-    }
-
-    // Selects candidate tour for crossover
-    private static Tour tournamentSelection(Population pop) {
-        // Create a tournament population
-        Population tournament = new Population(tournamentSize, false);
-        // For each place in the tournament get a random candidate tour and
-        // add it
-        for (int i = 0; i < tournamentSize; i++) {
-            int randomId = (int) (Math.random() * pop.populationSize());
-            tournament.saveTour(i, pop.getTour(randomId));
-        }
-        // Get the fittest tour
-        Tour fittest = tournament.getFittest();
-        return fittest;
     }
 }

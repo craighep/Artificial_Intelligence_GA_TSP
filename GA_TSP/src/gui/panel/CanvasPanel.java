@@ -1,8 +1,8 @@
 package gui.panel;
 
 import data.City;
-import data.Tour;
-import data.TourManager;
+import data.Path;
+import data.PathSolution;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,17 +11,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
-
 import javax.swing.*;
 
+/**
+ * Shows the map of cities.
+ * Draws all the points in a path, and shows path solutions.
+ * @author Craig
+ */
 public class CanvasPanel extends JPanel implements ActionListener {
 
-    private final StatusPanel statusPane;
+    private StatusPanel statusPane;
     private JLabel totalLabel = new JLabel("");
     private JLabel initialLabel = new JLabel("");
     SpringLayout layout = new SpringLayout();
     private JSeparator statusSep = new JSeparator(JSeparator.VERTICAL);
 
+    /**
+     * Creates a new panel for the canvas allowing users to add points by clicking,
+     * and to view current points and solution paths.
+     * @param sp Status panel
+     */
     public CanvasPanel(StatusPanel sp) {
         SpringLayout layout = new SpringLayout();
         
@@ -43,21 +52,23 @@ public class CanvasPanel extends JPanel implements ActionListener {
         layout.putConstraint(SpringLayout.WEST, totalLabel, 10, SpringLayout.WEST, this);
     }
 
+    /**
+     * Exits the program.
+     */
     public void exitProgram() {
-
-        //Display question dialog
-        int exit = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "UMLator | Exit", JOptionPane.YES_NO_OPTION);
-
-        //If user selects "yes"
+        int exit = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
         if (exit == JOptionPane.YES_OPTION) {
-
-            //Terminate the program
             System.exit(0);
         }
     }
 
+    /**
+     * Updates the status panel with the current location of the mouse on the 
+     * panel.
+     * @param x Current mouse X coordinate
+     * @param y Current mouse Y coordinate
+     */
     public void displayCoords(int x, int y) {
-        //Update mouse coordinates display
         statusPane.setCoords(x, y);
     }
 
@@ -70,7 +81,7 @@ public class CanvasPanel extends JPanel implements ActionListener {
         if (g != null) {
             super.paint(g);
             Graphics2D g2 = (Graphics2D) g;
-            ArrayList<City> cities = TourManager.getAll();
+            ArrayList<City> cities = PathSolution.getAll();
             for (int i = 0; i < cities.size(); i++) {
                 City city = cities.get(i);
                 g2.setPaint(Color.black);
@@ -79,26 +90,35 @@ public class CanvasPanel extends JPanel implements ActionListener {
                 g2.setPaint(Color.blue);
                 g2.fillOval(city.getX(), city.getY(), 15, 15);
                 
-                if (TourManager.isSolved() && cities.size() > i + 1) {
+                if (PathSolution.isSolved() && cities.size() > i + 1) {
                     City nextCity = cities.get(i + 1);
                     Line2D lin = new Line2D.Float(city.getX() + 7, city.getY() + 7, nextCity.getX() + 7, nextCity.getY() + 7);
                     g2.draw(lin);
                 }
             }
             // then draw line back to starting point
-            if(cities.size() > 1 && TourManager.isSolved()){
+            if(cities.size() > 1 && PathSolution.isSolved()){
                 City lastCity = cities.get(cities.size()-1);
                 City firstCity = cities.get(0);
                 Line2D lin = new Line2D.Float(lastCity.getX() + 7, lastCity.getY() + 7, firstCity.getX() + 7, firstCity.getY() + 7);
                 g2.draw(lin);
             }
-        }    }
+        }    
+    }
 
-    public void showStats(Tour tour) {
-        totalLabel.setText("Total Solution Distance: " + tour.getDistance());
-        initialLabel.setText("Initial Order Distance: " + tour.getInitialDistance());
+    /**
+     * Shows basic statistics about the current solution distance and initial distance
+     * on the canvas panel.
+     * @param path Current solution path
+     */
+    public void showStats(Path path) {
+        totalLabel.setText("Total Solution Distance: " + path.getDistance());
+        initialLabel.setText("Initial Order Distance: " + path.getInitialDistance());
     }
     
+    /**
+     * Removes the text on the canvas panel.
+     */
     public void hideStats(){
         totalLabel.setText("");
         initialLabel.setText("");

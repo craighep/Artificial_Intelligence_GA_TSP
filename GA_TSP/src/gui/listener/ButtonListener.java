@@ -1,16 +1,29 @@
 package gui.listener;
 
 import data.GA;
-import data.Tour;
-import data.TourManager;
+import data.Path;
+import data.PathSolution;
+import data.SelectionType;
 import java.awt.event.*;
 import gui.panel.*;
 
+/**
+ * A listener for buttons on the button panel in the GUI.
+ * Calls methods to generate points, complete solutions, clear points or to close
+ * the application.
+ * @author Craig
+ */
 public class ButtonListener implements ActionListener {
 
     private CanvasPanel canvasPane;
     private ButtonPanel buttonPane;
 
+    /**
+     * Initialises each pane to allow for methods such as showing solution stats
+     * to be used.
+     * @param bp Button panel
+     * @param cP Canvas panel
+     */
     public ButtonListener(ButtonPanel bp, CanvasPanel cP) {
         canvasPane = cP;
         buttonPane = bp;
@@ -22,26 +35,29 @@ public class ButtonListener implements ActionListener {
 
         switch (actionCommand) {
             case "Generate Points":
-                TourManager.clearAll();
+                PathSolution.clearAll();
                 int generateAmount = ButtonPanel.generateAmount.getValue();
-                TourManager.randomlyGenerateCities(generateAmount, 
+                PathSolution.randomlyGenerateCities(generateAmount, 
                         canvasPane.getWidth(), canvasPane.getHeight());
-                TourManager.setSolved(false);
+                PathSolution.setSolved(false);
                 canvasPane.hideStats();
                 canvasPane.repaint();
                 break;
             case "Solve TSP":
                 double mutationRate = Double.valueOf(ButtonPanel.mutationInput.getText());
                 int populationEvolution = Integer.parseInt(ButtonPanel.evolutionInput.getText());
-                Tour solution = GA.calculateTour(TourManager.getAll(), mutationRate, populationEvolution);
-                TourManager.setAll(solution.getAllInTour()); // Set current tour to solution for repaint
-                TourManager.setSolved(true);
+                SelectionType selectionType = SelectionType.fromString(ButtonPanel.selectionType.getSelectedItem().toString());
+                boolean elitism = ButtonPanel.elitsimEnabled.isSelected();
+                GA TSPGeneticAlgorithm = new GA();
+                Path solution = TSPGeneticAlgorithm.calculatePath(PathSolution.getAll(), mutationRate, populationEvolution, elitism, selectionType);
+                PathSolution.setAll(solution.getAllInPath()); // Set current path to solution for repaint
+                PathSolution.setSolved(true);
                 canvasPane.showStats(solution);
                 canvasPane.repaint();
                 break;
             case "Clear Points":
-                TourManager.clearAll();
-                TourManager.setSolved(false);
+                PathSolution.clearAll();
+                PathSolution.setSolved(false);
                 canvasPane.hideStats();
                 canvasPane.repaint();
                 break;

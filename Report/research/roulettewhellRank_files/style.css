@@ -1,0 +1,60 @@
+html, body 
+{
+  overflow: auto;
+  height: 100%; 
+  width: 100%;
+}
+body 
+{
+  background-color: #FFFFF0;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  max-height: 100%; 
+}
+p { text-align: justify; }
+:link { color: #A00000 }
+:visited { color: #000000 }
+h1 {text-align: center}
+h2 {text-align: center}
+h3 {text-align: center}
+#menu 
+{
+  position: absolute;
+  left: 0.5em;
+  top: 0em;
+  width: 10em;
+  height: 100%;
+  text-align: left;
+}
+#content
+{
+  height: 100%;
+  margin-left: 12em;
+  overflow: auto;
+  position : relative;
+}
+#content p { margin: 1em;}
+img 
+{
+  border: 0;
+}
+img.center
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+applet
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+p.center
+{
+  text-align: center;
+}

@@ -1,23 +1,41 @@
 package gui.panel;
 
+import data.SelectionType;
 import gui.listener.ButtonListener;
 import javax.swing.*;
-
 import java.awt.Color;
 
+/**
+ * Provides the buttons and options for the GA.
+ * Creates the labels and inputs on the button panel, each placed using the 
+ * Spring layout mechanism. 
+ * @author Craig
+ */
 public class ButtonPanel extends JPanel {
 
     private JLabel genLabel = new JLabel("--GA Options--");
-    private JLabel mutationLabel = new JLabel("Mutation Level");
-    private JLabel evolutionLabel = new JLabel("Population evolution");
+    private JLabel mutationLabel = new JLabel("Mutation Rate");
+    private JLabel evolutionLabel = new JLabel("Population Evolution");
+    private JLabel selectionLabel = new JLabel("Selection Type");
     private JButton generateButton, clearButton, solveButton;
+
     public static JSlider generateAmount = new JSlider(JSlider.HORIZONTAL, 0, 50, 25);
     public static JTextField mutationInput = new JTextField("0.015");
     public static JTextField evolutionInput = new JTextField("1000");
+    public static JComboBox selectionType = new JComboBox(new String[] {
+        SelectionType.RANK.getName(), SelectionType.pathNAMENT.getName(), 
+        SelectionType.ROULETTEWHEEL.getName()});
+    
+    public static JCheckBox elitsimEnabled = new JCheckBox("Elitism Enabled", false);
     private JSeparator titleSep = new JSeparator(JSeparator.HORIZONTAL);
     private JSeparator topSep = new JSeparator(JSeparator.HORIZONTAL);
     private JSeparator bottom = new JSeparator(JSeparator.HORIZONTAL);
 
+    /**
+     * Creates a new Button panel to hold user options for the GA. Adds a listener
+     * to each button or option on the panel.
+     * @param cP Canvas panel
+     */
     public ButtonPanel(CanvasPanel cP) {
 
         //Initialises action listener for button components on panel
@@ -56,6 +74,9 @@ public class ButtonPanel extends JPanel {
         this.add(mutationInput);
         this.add(evolutionLabel);
         this.add(evolutionInput);
+        this.add(selectionLabel);
+        this.add(selectionType);
+        this.add(elitsimEnabled);
         
         solveButton = new JButton("Solve TSP");
         this.add(solveButton);
@@ -105,7 +126,19 @@ public class ButtonPanel extends JPanel {
         layout.putConstraint(SpringLayout.WEST, evolutionInput, 12, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.EAST, evolutionInput, -12, SpringLayout.EAST, this);
         
-        layout.putConstraint(SpringLayout.NORTH, solveButton, 40, SpringLayout.NORTH, evolutionInput);
+        layout.putConstraint(SpringLayout.NORTH, selectionLabel, 40, SpringLayout.NORTH, evolutionInput);
+        layout.putConstraint(SpringLayout.WEST, selectionLabel, 12, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.EAST, selectionLabel, -12, SpringLayout.EAST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, selectionType, 20, SpringLayout.NORTH, selectionLabel);
+        layout.putConstraint(SpringLayout.WEST, selectionType, 12, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.EAST, selectionType, -12, SpringLayout.EAST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, elitsimEnabled, 40, SpringLayout.NORTH, selectionType);
+        layout.putConstraint(SpringLayout.WEST, elitsimEnabled, 12, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.EAST, elitsimEnabled, -12, SpringLayout.EAST, this);
+        
+        layout.putConstraint(SpringLayout.NORTH, solveButton, 40, SpringLayout.NORTH, elitsimEnabled);
         layout.putConstraint(SpringLayout.WEST, solveButton, 12, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.EAST, solveButton, -12, SpringLayout.EAST, this);
 

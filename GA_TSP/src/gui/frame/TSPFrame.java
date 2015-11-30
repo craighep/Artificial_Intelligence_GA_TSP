@@ -7,6 +7,12 @@ import javax.swing.JFrame;
 import gui.listener.*;
 import gui.panel.*;
 
+/**
+ * Creates the main GUI frame.
+ * Creates the frame and adds each of the different panels to it, alongside
+ * the mouse listeners for placing cities on the map.
+ * @author Craig
+ */
 public class TSPFrame extends JFrame {
 
     private ButtonPanel btPanel;
@@ -15,47 +21,43 @@ public class TSPFrame extends JFrame {
     private MouseInterListener mIL;
     private MousePositionListener mPL;
 
+    /**
+     * Creates a new window, and initialises each panel before adding them to it.
+     * Sets the size of the window, and the location.
+     */
     public TSPFrame() {
 
-        //Locate and set frame icon
-        //Initialise and set up frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("TSP Solver");
 
-        //Create new StatusPanel
-        stPanel = new StatusPanel(cvPanel);
+        stPanel = new StatusPanel();
         stPanel.setPreferredSize(new Dimension(this.getWidth(), 25));
 
-        //Create new CanvasPanel
         cvPanel = new CanvasPanel(stPanel);
 
-        //Create new ButtonPanel
         btPanel = new ButtonPanel(cvPanel);
         btPanel.setPreferredSize(new Dimension(175, this.getHeight()));
 
-        //Set panel positions and add to frame
         add(btPanel, BorderLayout.WEST);
         add(cvPanel, BorderLayout.CENTER);
         add(stPanel, BorderLayout.SOUTH);
 
-        //Fit frame to ensure all panels/components are visible
         pack();
 
-        //Create interaction listeners and add to relevant panels
         mIL = new MouseInterListener(cvPanel, btPanel);
         cvPanel.addMouseListener(mIL);
         mPL = new MousePositionListener(cvPanel, btPanel);
         cvPanel.addMouseMotionListener(mPL);
 
-        //Determine centre of user's screen and position frame
         Toolkit k = Toolkit.getDefaultToolkit();
         Dimension d = k.getScreenSize();
         this.setLocation(d.width / 2 - this.getWidth() / 2, d.height / 2 - this.getHeight() / 2);
-
     }
 
+    /**
+     * Opens the generated frame in a new window.
+     */
     public void showIt() {
-        //Display frame on screen
         this.setVisible(true);
     }
 
