@@ -3,23 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/PathSolution.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/SelectionTool.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/Chromosome.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/listener/ButtonListener.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/panel/ButtonPanel.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/panel/StatusPanel.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/types/SelectionType.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/listener/MousePositionListener.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/GA.java</file>
+            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/stats/LineChart.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/types/CrossoverType.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/City.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/frame/TSPFrame.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/panel/CanvasPanel.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/listener/MouseInterListener.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/Runnable.java</file>
+            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/GA.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/CrossoverTool.java</file>
-            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/Path.java</file>
         </group>
     </open-files>
 </project-private>
