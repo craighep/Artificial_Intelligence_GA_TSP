@@ -144,8 +144,75 @@ There are two simple ways of running the application, both through the runnable 
 \end{figure}
 
 \subsection{Comparison of application results}
-Using the produced application, a comparison of results from using the different lgorithms implemented can be completed. There will be a range of different test set ups here, all of which will have graphs and statistics attahced, to help compare and decide the best set up for the travelling salesman problem in terms of a genetic algorithm.
+Using the produced application, a comparison of results from using the different lgorithms implemented can be completed. There will be a range of different test set ups here, all of which will have graphs and statistics attahced, to help compare and decide the best set up for the travelling salesman problem in terms of a genetic algorithm. Initial set ups (listed by selection type) will be described below, followed by tabled statistics of modifcations of those set ups.
 
+\subsubsection{Rank based selection}
+Starting with a problem space of 12, the solution produced can be found in Figure \ref{fig:8}. Figure \ref{fig:9} shows the same setup, but with a doubled evolution amount, to 1000.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.9\linewidth]{images/ordered_rank_015_500_false}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:8}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.9\linewidth]{images/ordered_rank_015_1000_false}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 1000.}
+  \label{fig:9}
+\end{figure}
+
+\subsubsection{Roulette based selection}
+With the same, fair amount of nodes, the solution produced can be found in Figure \ref{fig:10}. As with the previous run, Figure \ref{fig:11} shows an increase to 1000 evolutions. Elitism has also been enabled on the second run, to avoid the paths becoming completely random due to such a short amount of nodes.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.9\linewidth]{images/ordered_routlette_015_500_false}
+  \caption{Result using roulette based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:10}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.9\linewidth]{images/ordered_routlette_015_1000_true}
+  \caption{Result using roulette based slection, ordered crossove, elitsm enabled and an evolution amount of 1000.}
+  \label{fig:11}
+\end{figure}
+
+\subsubsection{Tournament based selection}
+Starting with a problem space of 12, the solution produced can be found in Figure \ref{fig:12}. Figure \ref{fig:13} shows the same setup, but with a doubled evolution amount, to 1000.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.9\linewidth]{images/ordered_tournament_015_500_false}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:12}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.9\linewidth]{images/ordered_tournament_015_1000_true}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:13}
+\end{figure}
+
+\subsubsection{Comparisons of initial results}
+Following the completion of the first set of testing, Table \ref{tab:1} shows the sumarised results using the listed selection types. From the results shows in the table, it can be seen that increasing evolutions decreases the distances in solutions, espcically in the case of the roulette selection GA. Although overall runtime lokos to expenentially increase, it seems nessecary that future GA testing should use more evolutions to ensure that the final solution fitness hits a local minimum.
+
+\begin{table}[H]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{llll}
+Selection Type & Num. of Evolutions & Solution Distance & Run Time (ms) \\
+Rank           & 500                & 2643              & 6             \\
+Rank           & 1000               & 2598              & 14            \\
+Roulette       & 500                & 4318              & 5             \\
+Roulette       & 1000               & 2598              & 11            \\
+Tournament     & 500                & 2784              & 6             \\
+Tournament     & 1000               & 2633              & 12           
+\end{tabular}
+\end{table}
+
+To descibe the 
 
 \section{Overall findings and conclusion}
 
