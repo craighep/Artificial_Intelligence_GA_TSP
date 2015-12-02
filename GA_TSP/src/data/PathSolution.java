@@ -55,23 +55,6 @@ public class PathSolution extends ArrayList<City> {
     }
 
     /**
-     * Randomly creates a path using a (given number of) random points in between 
-     * x and y values of 0 and a number passed.
-     * @param amount Number of points to generate
-     * @param maxX Maximum x value of location
-     * @param maxY Maximum y value of location
-     */
-    public static void randomlyGenerateCities(int amount, int maxX, int maxY) {
-        Random randomGen = new Random();
-        for (int i = 0; i < amount; i++) {
-            int x = randomGen.nextInt(maxX);
-            int y = randomGen.nextInt(maxY);
-            City city = new City(x, y);
-            addCity(city);
-        }
-    }
-
-    /**
      * Clears the current path solution
      */
     public static void clearAll() {

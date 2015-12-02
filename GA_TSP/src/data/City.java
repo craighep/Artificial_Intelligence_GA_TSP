@@ -20,6 +20,17 @@ public class City {
         this.y = y;
         this.id = PathSolution.getSize()+1;
     }
+    
+    /**
+     * Constructs a new city with location x and y.
+     * @param x x coord
+     * @param y y coord
+     */
+    public City(int x, int y, int id) {
+        this.x = x;
+        this.y = y;
+        this.id = id;
+    }
 
     /**
      * Returns the x coordinate.

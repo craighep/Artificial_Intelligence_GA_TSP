@@ -59,6 +59,10 @@ public class GA {
         // Export statitics to graphs
         fitnessChart.exportDistanceGraph(bestEvolvedPaths, averageEvolvedPaths);
 
+        // Export solution to csv
+        TSPGenerator TSPGenerator = new TSPGenerator();
+        TSPGenerator.generateCitiesCsv("output.csv", solution.getAllInPath());
+        
         solution.setInitialDistance(initialDistance);
         return solution;
     }

@@ -28,7 +28,7 @@ Genetic algorithms are considered in a wide array of problems where exact algori
 \subsection{Travelling Salesman Problem}
 To understand the travelling salesman problem, the reasons for its existence and early sources should be known. The travelling salesman problem was thought up in 1930 \cite{1} by Merrill Flood whilst looking to solve a school bus routing problem. The problem stems off from the Hamiltonian cycle puzzle, requiring the solver to visit all node or ‘cities’ once in a set of \( \mathcal{N} \) cities. At this point in time, no general method of solution is known \cite{2} (so is considered NP-hard) therefore only the best and shortest paths can be evaluated from several attempts. \par
 Because of the nature of the problem, genetic algorithms appear as an idealistic means of finding optimised tours where a solution cannot be found using a mathematical means. Evolutionary algorithms used in genetics may never be guaranteed to find optimal solutions, though due to their random nature they will often find a good solution \cite{3}. Genetic algorithms are called as so because of the similar way they act to natural selection, with the best and most efficient parents creating more advantageous children. In the instance of the travelling salesman, this could be reflected where two parents whose path distances are short are combined to form a child who uses similar paths to that of its parents, combined with a small form of randomness in the hope of improving upon a solution. \par
-Figures \ref{fig:1} and \ref{fig:2} show an example TSP with a low number of points where an optimal solution can be found quite easily by exact, heuristic or GA means. An important aspect expressed in figure 2 is that although all the points are visited, the final vertex visited must also be linked to the first in order to return to the starting position.
+Figures \ref{fig:1} and \ref{fig:2} show an example TSP with a low number of points where an optimal solution can be found quite easily by exact, heuristic or GA means. An important aspect expressed in Figure \ref{fig:2} is that although all the points are visited, the final vertex visited must also be linked to the first in order to return to the starting position.
 \begin{figure}
 \centering
   \includegraphics[width=.8\linewidth]{images/problem}
@@ -89,26 +89,61 @@ The third and final selection technique to be explored that will be tested in a 
 
 \subsubsection{Crossover methods}
 The next integral part of the genetic algorithm to be implemented is the crossover type. For this, two methods have been considered; ordered and uniform. Alike the previous section, both will be discussed how they function and how they will be integrated within the solver application. \par
-The reason for only selecting two crossover methods stems from the reason that although many crossover algorithms exist, many of them are inconsistant a probelm such as travelling salesman. For instance, take the crossover example in figure \ref{fig:5}, after a simple one-point crossover, although the chromosomes have been mixed, the solutions in the childs are no longer valid since not all the points will be visited. A paper by Kylie Bryant which looks at both general genetic algorithms and how they can be applied to the travelling salesman problem mentions that algorithms should be made to make sure that children chromosomes do not finish as illeagle solutions, and that 'in this way, crossover is very problem specific' \cite{7}. \par
-The first to be considered is ordered crossover. The same paper explains this type of crossover well, explaining that this type of crossover is very similar to the PMX (partially mapped crossover) method, except instead of repairing chromesomes which contain repeat nodes, the rest of the nodes are rearranged to provide a leagal path.
-PAGE 14 INFEASABLE CROSSOVERS
+The reason for only selecting two crossover methods stems from the reason that although many crossover algorithms exist, many of them are inconsistant a probelm such as travelling salesman. For instance, take the crossover example in Figure \ref{fig:5}, after a simple one-point crossover, although the chromosomes have been mixed, the solutions in the childs are no longer valid since not all the points will be visited. A paper by Kylie Bryant which looks at both general genetic algorithms and how they can be applied to the travelling salesman problem mentions that algorithms should be made to make sure that children chromosomes do not finish as illeagle solutions, and that 'in this way, crossover is very problem specific' \cite{7}. \par
+The first to be considered is ordered crossover. The same paper explains this type of crossover well, explaining that this type of crossover is very similar to the PMX (partially mapped crossover) method, except instead of repairing chromesomes which contain repeat nodes, the rest of the nodes are rearranged to provide a leagal path. In the application, this will be implemented by starting with a switch of part of two chromosomes between two crossover points. With this complete, then the child chromosomes will be constrcted using genes from the start of the second crossover point, and these are to be  added until the parent is looped over and reach the first crossover point. Finally the selected crossover genes will be placed into the child chromosomes in the position of the first crossover point.
 The second crossover algorithm 
 
+TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 \subsubsection{Mutation methods}
+For the same reason that crossover options are limited due to the NP-Hard nature of the travelling salesmane problem, only a short amount of availible mutation types were availible for consideration. For the purposes of this paper and the application constructed, only one mutation type will be used, swap mutation. Swap mutation is a very ideal solution to mutating points along a TSP becuase it allows routes to branch off and explore paths gradually further down the route as more optimum solutions are found. One author of an online article exploring a similar problem to this paper, states that using simple swap mutation makes the GA 'unable to achieve an optimum quickly but can prevent convergence into a local optimum' \cite{8}. \par
+In order to allow the TSP solver to have the best chance of finding optimal solutions wth greater amounts of nodes or cities, the application will use the simple swap mutation algorithm. For instance, in the case that there are fourty points in a TSP, a more advanced swap mutation might find a solution it believes optimal quickly due to little improvement after a certain amount of time, this swap mutation will continue looking at other options and could find a better ending solution. In the results stage of this paper, especially when combined with roulette selection, that the avergage fitness should derease to a low point and then waver at that point until the application stops.\par
+The suggested implimentatoin of mutation should involve looping through each city in a path, and selecting two random points, swapping them both. Of course a mutation rate will be set to ensure that swapping is not always performed, otherwise the local minimum fitness may never be found. To do this in terms of programming the solver, a simple check would only allow a swap i the mutation rate is higher than a random number generated between 1 and 0.
 
 \subsubsection{Evolution stop criteria}
+The final part of any GA and one that has been considered while planning the implementation the TSP solver is deciding when to stop the evolutions of chromosomes, or in otherwords stopping the looping of selection, crossover and mutation. In a chapter from the book 'Advances in Artificial Intelligence – SBIA 2004' \cite{9}, the three most commonly and widley used stopping criteria are described:
+\begin{itemize}
+\item An upper limit for number of generations is reached
+\item An upper limit on the number of evaulated fitness functions is reached
+\item The chance of significant improvement is reached
+\end{itemize}
+For the purpose of the research in this paper, the first will be implemented in order to allow more flexibility when testing and to allow the user to increase the runtime in order to compare the time required for each selection and crossover to hit a local minimum. This will also provide the ability to run more stressful testing to the algorithms such as increasing the number of cities to larger numbers.
 
 \subsection{Application structure}
-Folllowing the completion of research into various implementation options for different parts of the TSP solver application, the structure of the application itself can be detailed. In order to do this, a high level class diagram, alongside a description of communication between classes has been provided in Figure \ref{6}. The language chosen for this implimentation was Java, for its extensive library collections and vast amount of tutorials similaly using the language for other genetic algorithm examples.
+Folllowing the completion of research into various implementation options for different parts of the TSP solver application, the structure of the application itself can be detailed. In order to do this, a high level class diagram, alongside a description of communication between classes has been provided in Figure \ref{fig:5}. The language chosen for this implimentation was Java, for its extensive library collections and vast amount of tutorials similaly using the language for other genetic algorithm examples.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=.8\linewidth]{images/rank}
+  \includegraphics[width=.8\linewidth]{images/class}
   \caption{High level class diagram of the TSP solver application.}
+  \label{fig:5}
+\end{figure}
+As it can be seen in the diagram, there is a GUI in the design which is seperated from the main logic of the application. This was done in order to allow a user wanting to run the application without the front end and opt for the option to use it as a console application only. The application has been made in an object orientated form as much as possible, such as creating objects for cities, paths, and types of crossover/ selection. \par
+Starting by looking at key classes in Figure \ref{fig:5}, the main class 'Runnable' is responsible for triggering a run of the algorithm or trigger the opening of the GUI. If the user runs the jr using the 'java' command and passes correct arguments, then the output is printed to the command line alongisde an export of the result csv file, and graphs from runtime. Otherwise the applcation frame is opened, and the user can perofrm actions through controls availible. \par
+To keep the GA class as simple as posisble, a lot of the logic for performing the solving of TSP's was placed into helper classes such as selection and crossover 'tools'. Both these classes contain all th implemented methods for crossovers and selections, and are selected via enumerted types for both respectably. All of the algorithms implemented can be found in the previous subection of this paper, and all have graphical and command line options to use each. \par
+The TSP generatot class is especially important, making use of teh Java Secure Random library to give less chance of duplicated points. This class has the ability to import and export paths to CSV and is used when the user creates 
+As for represntations of the actual paths, it was ensured that both chromosomes (paths), and genes (cities) would be done in the most object orientated way possible. As shown in the class diagram in Figure \ref{fig:5}, a population is a collection of Paths, with each of these extending an abstract class of type chromosome. This has been done to show the relationship to genetics that the GA has. Within each path, a collection of cities (which represent genes) form the solutions to the given TSP. \par
+Other than the GA workings and GUI, there is also a connection to a class 'LineChart'. This class is responsible for generting statistics and graphs of each runtime, from average fitness to lowest distance of a GA. For this, a Java library named jFreeChart \cite{10} was used to save time creating graphs allowing more time for concentrating on the GA. By creating graphs in runtime dynamically, it meant that the next secton of tis paper makes use of statistics already in a well presented form.\par
+As with any good appliocation, the TSP solver created is well commented, and Javadoc is availible in the 'dist/Javadoc' folder.
+
+\subsubsection{Running the application}
+There are two simple ways of running the application, both through the runnable Jar file. Figure \ref{fig:6} shows the result of simply opening the Jar to open up the GUI. The other option is shown in Figure \ref{fig:7} by running the Jar through the command line to produce a command line repsonse. The primary parameters for this are: name of csv file containing coordiantes; a mutation rate; an evolution amount; whether elitism should be enabled; a selection type; and a crossover type. It should be noted that in order to run the command line version, the GUI version may need to be run if the user wishes to make use of the random point generation operation, which will only export to CSV whilst run in the GUI.
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.8\linewidth]{images/GUI}
+  \caption{The appplication running with it GUI.}
   \label{fig:6}
 \end{figure}
-As it can be seen in the diagram, there is a GUI in the design which is seperated from the main logic of the application. This was done in order S
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.9\linewidth]{images/commandLine}
+  \caption{Example run of the console with example parameters.}
+  \label{fig:7}
+\end{figure}
 
 \subsection{Comparison of application results}
+
 
 \section{Overall findings and conclusion}
 
@@ -143,6 +178,18 @@ University of Applied Sciences. Czech Technical University., 1998.
 \bibitem{7}
 K. Bryant , \textit{Genetic Algorithms and the Traveling Salesman Problem},
 Department of Mathematics. Harvey Mudd college., 2000. 
+
+\bibitem{8} 
+K. Boukreev, \textit{Genetic Algorithm and Traveling Salesman Problem},
+\textit{\url{http://www.generation5.org/content/2001/tspapp.asp}}, 2001.
+
+\bibitem{9}
+M. Safe , \textit{On Stopping Criteria for Genetic Algorithms},
+Advances in Artificial Intelligence – SBIA 1004., 2004. 
+
+\bibitem{10} 
+Object Refinery Limited, \textit{JFreeChart},
+\textit{\url{http://www.jfree.org/jfreechart/download.html}}, 2013.
 
 \end{thebibliography}
 \end{document}

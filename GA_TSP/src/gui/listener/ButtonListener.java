@@ -1,5 +1,6 @@
 package gui.listener;
 
+import data.TSPGenerator;
 import data.GA;
 import data.Path;
 import data.PathSolution;
@@ -38,7 +39,8 @@ public class ButtonListener implements ActionListener {
             case "Generate Points":
                 PathSolution.clearAll();
                 int generateAmount = ButtonPanel.generateAmount.getValue();
-                PathSolution.randomlyGenerateCities(generateAmount, 
+                TSPGenerator TSPGenerator = new TSPGenerator();
+                TSPGenerator.randomlyGenerateCities(generateAmount, 
                         canvasPane.getWidth(), canvasPane.getHeight());
                 PathSolution.setSolved(false);
                 canvasPane.hideStats();
