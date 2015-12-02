@@ -7,7 +7,7 @@ package data.types;
  */
 public enum CrossoverType {
     ORDERED("Ordered"),
-    UNIFORM("Uniform");
+    CYCLIC("Cyclic");
     
     private String name = "";
     

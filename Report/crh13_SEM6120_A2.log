@@ -1,13 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.5)  2 DEC 2015 15:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.4)  2 DEC 2015 19:50
 entering extended mode
-**C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/Report/crh13_S
-EM6120_A2.tex
-
-(C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/Report/crh13_SE
-M6120_A2.tex
-LaTeX2e <2015/01/01> patch level 2
-Babel <3.9m> and hyphenation patterns for 69 languages loaded.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ieeetran\IEEEtran.cls"
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./crh13_SEM6120_A2.tex
+(./crh13_SEM6120_A2.tex
+LaTeX2e <2015/10/01> patch level 1
+Babel <3.9m> and hyphenation patterns for 79 languages loaded.
+(c:/texlive/2015/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -20,7 +19,7 @@ Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+(c:/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
@@ -114,31 +113,31 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen125
 \c@IEEEbiography=\count93
 \@IEEEtranrubishbin=\box27
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+) (c:/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(c:/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 94.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+(c:/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count94
@@ -146,7 +145,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen126
 \Gin@req@width=\dimen127
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count95
 \float@exts=\toks16
@@ -154,28 +153,28 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks17
 \@floatcapt=\box29
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\url\url.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks18
 \ex@=\dimen128
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen129
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+(c:/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count96
@@ -220,7 +219,9 @@ LaTeX Info: Redefining \] on input line 2666.
 LaTeX Warning: Unused global option(s):
     [article].
 
-(crh13_SEM6120_A2.aux)
+(./crh13_SEM6120_A2.aux)
+\openout1 = `crh13_SEM6120_A2.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
@@ -235,7 +236,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 
 -- Lines per column: 58 (exact).
-("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(c:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count108
 \scratchdimen=\dimen137
@@ -248,14 +249,62 @@ LaTeX Font Info:    ... okay on input line 10.
 \MPnumerator=\count112
 \makeMPintoPDFobject=\count113
 \everyMPtoPDFconversion=\toks24
+) (c:/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
+
+(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(c:/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(c:/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(c:/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(c:/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(c:/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ˜ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
- <images/problem.jpg, id=1, 373.395pt x 320.69812pt>
+
+<images/problem.jpg, id=1, 373.395pt x 320.69812pt>
 File: images/problem.jpg Graphic file (type jpg)
  <use images/problem.jpg>
 Package pdftex.def Info: images/problem.jpg used on input line 34.
@@ -267,18 +316,18 @@ File: images/solution.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/solution.jpg used on input line 40.
 (pdftex.def)             Requested size: 201.60077pt x 179.33931pt.
 
-[1{C:/Users/Craig/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+[1{c:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
  <./images/problem.jpg> <./images/solution.jpg>]
-<images/rouletteWheel.jpg, id=12, 356.0803pt x 102.3825pt>
+<images/rouletteWheel.jpg, id=13, 356.0803pt x 102.3825pt>
 File: images/rouletteWheel.jpg Graphic file (type jpg)
 
 <use images/rouletteWheel.jpg>
 Package pdftex.def Info: images/rouletteWheel.jpg used on input line 74.
 (pdftex.def)             Requested size: 201.60077pt x 57.96494pt.
  [2 <./images/rouletteWheel.jpg>]
-<images/rank.jpg, id=16, 354.57469pt x 112.92188pt>
+<images/rank.jpg, id=17, 354.57469pt x 112.92188pt>
 File: images/rank.jpg Graphic file (type jpg)
  <use images/rank.jpg>
 Package pdftex.def Info: images/rank.jpg used on input line 83.
@@ -290,7 +339,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
- <images/class.jpeg, id=20, 379.4175pt x 271.0125pt>
+ <images/class.jpeg, id=21, 379.4175pt x 271.0125pt>
 File: images/class.jpeg Graphic file (type jpg)
 
 <use images/class.jpeg>
@@ -299,20 +348,20 @@ Package pdftex.def Info: images/class.jpeg used on input line 116.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./images/class.jpeg>] <images/GUI.jpg, id=25, 733.99219pt x 615.0478pt>
+ [4 <./images/class.jpeg>] <images/GUI.jpg, id=26, 733.99219pt x 615.0478pt>
 File: images/GUI.jpg Graphic file (type jpg)
 
 <use images/GUI.jpg>
 Package pdftex.def Info: images/GUI.jpg used on input line 134.
 (pdftex.def)             Requested size: 201.60077pt x 168.9275pt.
- <images/commandLine.jpg, id=26, 452.4403pt x 91.84312pt>
+ <images/commandLine.jpg, id=27, 452.4403pt x 91.84312pt>
 File: images/commandLine.jpg Graphic file (type jpg)
 
 <use images/commandLine.jpg>
 Package pdftex.def Info: images/commandLine.jpg used on input line 141.
 (pdftex.def)             Requested size: 226.79846pt x 46.03775pt.
 
-<images/ordered_rank_015_500_false.jpg, id=27, 595.47469pt x 594.72188pt>
+<images/ordered_rank_015_500_false.jpg, id=28, 595.47469pt x 594.72188pt>
 File: images/ordered_rank_015_500_false.jpg Graphic file (type jpg)
 
 <use images/ordered_rank_015_500_false.jpg>
@@ -320,10 +369,7 @@ Package pdftex.def Info: images/ordered_rank_015_500_false.jpg used on input li
 ne 153.
 (pdftex.def)             Requested size: 226.79846pt x 226.50484pt.
 
-Underfull \vbox (badness 2503) has occurred while \output is active []
-
-
-<images/ordered_rank_015_1000_false.jpg, id=28, 593.96906pt x 594.72188pt>
+<images/ordered_rank_015_1000_false.jpg, id=29, 593.96906pt x 594.72188pt>
 File: images/ordered_rank_015_1000_false.jpg Graphic file (type jpg)
 
 <use images/ordered_rank_015_1000_false.jpg>
@@ -331,7 +377,7 @@ Package pdftex.def Info: images/ordered_rank_015_1000_false.jpg used on input l
 ine 160.
 (pdftex.def)             Requested size: 226.79846pt x 227.08563pt.
 
-<images/ordered_routlette_015_500_false.jpg, id=29, 596.2275pt x 591.71063pt>
+<images/ordered_routlette_015_500_false.jpg, id=30, 596.2275pt x 591.71063pt>
 File: images/ordered_routlette_015_500_false.jpg Graphic file (type jpg)
 
 <use images/ordered_routlette_015_500_false.jpg>
@@ -343,7 +389,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <./images/GUI.jpg> <./images/commandLine.jpg> <./images/ordered_rank_015_50
 0_false.jpg> <./images/ordered_rank_015_1000_false.jpg>]
-<images/ordered_routlette_015_1000_true.jpg, id=33, 594.72188pt x 592.46344pt>
+<images/ordered_routlette_015_1000_true.jpg, id=34, 594.72188pt x 592.46344pt>
 File: images/ordered_routlette_015_1000_true.jpg Graphic file (type jpg)
 
 <use images/ordered_routlette_015_1000_true.jpg>
@@ -351,7 +397,7 @@ Package pdftex.def Info: images/ordered_routlette_015_1000_true.jpg used on inp
 ut line 176.
 (pdftex.def)             Requested size: 226.79846pt x 225.93399pt.
 
-<images/ordered_tournament_015_500_false.jpg, id=34, 599.99156pt x 596.2275pt>
+<images/ordered_tournament_015_500_false.jpg, id=35, 599.99156pt x 596.2275pt>
 File: images/ordered_tournament_015_500_false.jpg Graphic file (type jpg)
 
 <use images/ordered_tournament_015_500_false.jpg>
@@ -362,66 +408,76 @@ put line 185.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<images/ordered_tournament_015_1000_true.jpg, id=35, 597.73312pt x 596.98032pt>
+<images/ordered_tournament_015_1000_true.jpg, id=36, 597.73312pt x 596.98032pt>
 File: images/ordered_tournament_015_1000_true.jpg Graphic file (type jpg)
 <use images/ordered_tournament_015_1000_true.jpg>
 Package pdftex.def Info: images/ordered_tournament_015_1000_true.jpg used on in
 put line 192.
 (pdftex.def)             Requested size: 226.79846pt x 226.50873pt.
 
-
-LaTeX Warning: Reference `tab:1' on page 6 undefined on input line 198.
-
-
 Overfull \hbox (17.27037pt too wide) in paragraph at lines 204--213
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./images/ordered_routlette_015_500_false.jpg> <./images/ordered_routlette_
-015_1000_true.jpg> <./images/ordered_tournament_015_500_false.jpg> <./images/or
-dered_tournament_015_1000_true.jpg>]
-Underfull \hbox (badness 3128) in paragraph at lines 228--230
-[]\OT1/ptm/m/n/8 E.W. Weis-stein, \OT1/ptm/m/it/8 Hamil-to-nian Cy-cle\OT1/ptm/
-m/n/8 , $\OT1/ptm/m/it/8 http : / / mathworld . wolfram . com /$
+[6 <./images/ordered_routlette_015_500_false.jpg> <./images/ordered_routlette_0
+15_1000_true.jpg> <./images/ordered_tournament_015_500_false.jpg> <./images/ord
+ered_tournament_015_1000_true.jpg>]
+Overfull \hbox (17.27037pt too wide) in paragraph at lines 221--230
+ [][] 
  []
 
 
-Underfull \hbox (badness 4819) in paragraph at lines 232--234
+Underfull \hbox (badness 3128) in paragraph at lines 246--248
+[]\OT1/ptm/m/n/8 E.W. Weis-stein, \OT1/ptm/m/it/8 Hamil-to-nian Cy-cle\OT1/ptm/
+m/n/8 , $\OT1/ptm/m/it/8 http : / / mathworld . wolfram . com /
+ []
+
+
+Underfull \hbox (badness 4819) in paragraph at lines 250--252
 []\OT1/ptm/m/n/8 D.W. Dyer, \OT1/ptm/m/it/8 When are Evo-lu-tion-ary Al-go-rith
-ms Use-ful?\OT1/ptm/m/n/8 , $\OT1/ptm/m/it/8 http : / /$
+ms Use-ful?\OT1/ptm/m/n/8 , $\OT1/ptm/m/it/8 http : / /
  []
 
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
-[7
 
-] (crh13_SEM6120_A2.aux)
+Underfull \hbox (badness 7667) in paragraph at lines 282--284
+[]\OT1/ptm/m/n/8 L. Ja-cob-son, \OT1/ptm/m/it/8 Ap-ply-ing a ge-netic al-go-rit
+hm to the trav-el-ing
+ []
 
-LaTeX Warning: There were undefined references.
 
- ) 
+Underfull \hbox (badness 10000) in paragraph at lines 282--284
+\OT1/ptm/m/it/8 sales-man prob-lem\OT1/ptm/m/n/8 , $\OT1/ptm/m/it/8 http : / / 
+www . theprojectspot . com / tutorial-[]post /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--284
+\OT1/ptm/m/it/8 applying-[]a-[]genetic-[]algorithm-[]to-[]the-[]travelling-[]sa
+lesman-[]problem / 5$\OT1/ptm/m/n/8 ,
+ []
+
+[7] (./crh13_SEM6120_A2.aux) ) 
 Here is how much of TeX's memory you used:
- 2786 strings out of 493673
- 42558 string characters out of 3141530
- 108202 words of memory out of 3000000
- 6120 multiletter control sequences out of 15000+200000
- 40779 words of font info for 77 fonts, out of 3000000 for 9000
- 1025 hyphenation exceptions out of 8191
- 27i,7n,20p,912b,294s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
-urw/times/utmri8a.pfb>
-Output written on crh13_SEM6120_A2.pdf (7 pages, 642689 bytes).
+ 3144 strings out of 493054
+ 48526 string characters out of 6138327
+ 123251 words of memory out of 5000000
+ 6623 multiletter control sequences out of 15000+600000
+ 39672 words of font info for 76 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,7n,23p,844b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2015/texmf-dist/fonts/enc/dvips/base/
+8r.enc}<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c
+:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/
+2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2015/texmf-dist/fo
+nts/type1/urw/times/utmbi8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/tim
+es/utmr8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on crh13_SEM6120_A2.pdf (7 pages, 637908 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

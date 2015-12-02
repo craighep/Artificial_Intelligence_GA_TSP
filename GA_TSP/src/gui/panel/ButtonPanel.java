@@ -28,7 +28,7 @@ public class ButtonPanel extends JPanel {
         SelectionType.RANK.getName(), SelectionType.TOURNAMENT.getName(), 
         SelectionType.ROULETTEWHEEL.getName()});
     public static JComboBox crossoverType = new JComboBox(new String[] {
-        CrossoverType.ORDERED.getName(), CrossoverType.UNIFORM.getName()});
+        CrossoverType.ORDERED.getName(), CrossoverType.CYCLIC.getName()});
     
     public static JCheckBox elitsimEnabled = new JCheckBox("Elitism Enabled", false);
     private JSeparator titleSep = new JSeparator(JSeparator.HORIZONTAL);

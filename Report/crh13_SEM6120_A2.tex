@@ -124,7 +124,7 @@ The TSP generatot class is especially important, making use of teh Java Secure R
 A quick mention should be made to an extra feature implimented, which allows the user to click anywhere on the canvas to add a new city. This is very useful for testing, as harder, more custom paths can be made. \par
 As for represntations of the actual paths, it was ensured that both chromosomes (paths), and genes (cities) would be done in the most object orientated way possible. As shown in the class diagram in Figure \ref{fig:5}, a population is a collection of Paths, with each of these extending an abstract class of type chromosome. This has been done to show the relationship to genetics that the GA has. Within each path, a collection of cities (which represent genes) form the solutions to the given TSP. \par
 Other than the GA workings and GUI, there is also a connection to a class 'LineChart'. This class is responsible for generting statistics and graphs of each runtime, from average fitness to lowest distance of a GA. For this, a Java library named jFreeChart \cite{10} was used to save time creating graphs allowing more time for concentrating on the GA. By creating graphs in runtime dynamically, it meant that the next secton of tis paper makes use of statistics already in a well presented form.\par
-As with any good appliocation, the TSP solver created is well commented, and Javadoc is availible in the 'dist/Javadoc' folder.
+As with any good appliocation, the TSP solver created is well commented, and Javadoc is availible in the 'dist/Javadoc' folder. A mention should also be made to an online article on the project spot \cite{11}, which provided a good example on how to structure general GA's in the Java OO format.
 
 \subsubsection{Running the application}
 There are two simple ways of running the application, both through the runnable Jar file. Figure \ref{fig:6} shows the result of simply opening the Jar to open up the GUI. The other option is shown in Figure \ref{fig:7} by running the Jar through the command line to produce a command line repsonse. The primary parameters for this are: name of csv file containing coordiantes; a mutation rate; an evolution amount; whether elitism should be enabled; a selection type; and a crossover type. It should be noted that in order to run the command line version, the GUI version may need to be run if the user wishes to make use of the random point generation operation, which will only export to CSV whilst run in the GUI.
@@ -195,12 +195,12 @@ Starting with a problem space of 12, the solution produced can be found in Figur
 \end{figure}
 
 \subsubsection{Comparisons of initial results}
-Following the completion of the first set of testing, Table \ref{tab:1} shows the sumarised results using the listed selection types. From the results shows in the table, it can be seen that increasing evolutions decreases the distances in solutions, espcically in the case of the roulette selection GA. Although overall runtime lokos to expenentially increase, it seems nessecary that future GA testing should use more evolutions to ensure that the final solution fitness hits a local minimum.
+Following the completion of the first set of testing, Table \ref{tab:1} shows the sumarised results using the listed selection types. From the results shows in the table, it can be seen that increasing evolutions decreases the distances in solutions, espcically in the case of the roulette selection GA. Although overall runtime lokos to expenentially increase, it seems nessecary that future GA testing should use more evolutions to ensure that the final solution fitness hits a local minimum. What can also be seen in the figure previously is that roulette wheel requires elitism to be most effective, otherwise all routes change, reulting in the population to have a very slow evolution of fitness.
 
 \begin{table}[H]
 \centering
-\caption{My caption}
-\label{my-label}
+\caption{First runs of the GA using ordered crossover and a mutation rate of 0.015}
+\label{tab:1}
 \begin{tabular}{llll}
 Selection Type & Num. of Evolutions & Solution Distance & Run Time (ms) \\
 Rank           & 500                & 2643              & 6             \\
@@ -212,9 +212,27 @@ Tournament     & 1000               & 2633              & 12
 \end{tabular}
 \end{table}
 
-To descibe the 
+The same tests were performed but with cyclic crossover, and are displayed in Table \ref{tab:2}. Comparing the two sets of runs, cyclic crossover has appeard to both produce slightly longer paths, and was performed at a slow run time. Similar to the previous runs, the rank based selection tehnique proved the best, getting slightly better results that roulette overall.
+
+\begin{table}[H]
+\centering
+\caption{First runs of the GA using cyclic crossover and a mutation rate of 0.015}
+\label{tab:2}
+\begin{tabular}{llll}
+Selection Type & Num. of Evolutions & Solution Distance & Run Time (ms) \\
+Rank           & 500                & 2809              & 7            \\
+Rank           & 1000               & 2772              & 16            \\
+Roulette       & 500                & 4174              & 5             \\
+Roulette       & 1000               & 2772              & 11            \\
+Tournament     & 500                & 2809              & 7             \\
+Tournament     & 1000               & 2786              & 14           
+\end{tabular}
+\end{table}
+
+In order to refine the best GA, the next few tests will only consider ordered crossover. There was also an increase in cities to 30 in the next set of experiments to both push the algorithms further, and to allow better statistics to be gained considering average and best fitness/ distance levels.
 
 \section{Overall findings and conclusion}
+Concluding the tests performed previously, 
 
 \subsection{Improvements to proposed solution}
 
@@ -259,6 +277,10 @@ Advances in Artificial Intelligence – SBIA 1004., 2004.
 \bibitem{10} 
 Object Refinery Limited, \textit{JFreeChart},
 \textit{\url{http://www.jfree.org/jfreechart/download.html}}, 2013.
+
+\bibitem{11} 
+L. Jacobson, \textit{Applying a genetic algorithm to the traveling salesman problem},
+\textit{\url{http://www.theprojectspot.com/tutorial-post/applying-a-genetic-algorithm-to-the-travelling-salesman-problem/5}}, 2012.
 
 \end{thebibliography}
 \end{document}
