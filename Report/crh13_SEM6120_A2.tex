@@ -120,7 +120,8 @@ Folllowing the completion of research into various implementation options for di
 As it can be seen in the diagram, there is a GUI in the design which is seperated from the main logic of the application. This was done in order to allow a user wanting to run the application without the front end and opt for the option to use it as a console application only. The application has been made in an object orientated form as much as possible, such as creating objects for cities, paths, and types of crossover/ selection. \par
 Starting by looking at key classes in Figure \ref{fig:5}, the main class 'Runnable' is responsible for triggering a run of the algorithm or trigger the opening of the GUI. If the user runs the jr using the 'java' command and passes correct arguments, then the output is printed to the command line alongisde an export of the result csv file, and graphs from runtime. Otherwise the applcation frame is opened, and the user can perofrm actions through controls availible. \par
 To keep the GA class as simple as posisble, a lot of the logic for performing the solving of TSP's was placed into helper classes such as selection and crossover 'tools'. Both these classes contain all th implemented methods for crossovers and selections, and are selected via enumerted types for both respectably. All of the algorithms implemented can be found in the previous subection of this paper, and all have graphical and command line options to use each. \par
-The TSP generatot class is especially important, making use of teh Java Secure Random library to give less chance of duplicated points. This class has the ability to import and export paths to CSV and is used when the user creates 
+The TSP generatot class is especially important, making use of teh Java Secure Random library to give less chance of duplicated points. This class has the ability to import and export paths to CSV and is used when the user generates points in the GUI (exporting points), or used when running the application through the command line (reading points in).\par
+A quick mention should be made to an extra feature implimented, which allows the user to click anywhere on the canvas to add a new city. This is very useful for testing, as harder, more custom paths can be made. \par
 As for represntations of the actual paths, it was ensured that both chromosomes (paths), and genes (cities) would be done in the most object orientated way possible. As shown in the class diagram in Figure \ref{fig:5}, a population is a collection of Paths, with each of these extending an abstract class of type chromosome. This has been done to show the relationship to genetics that the GA has. Within each path, a collection of cities (which represent genes) form the solutions to the given TSP. \par
 Other than the GA workings and GUI, there is also a connection to a class 'LineChart'. This class is responsible for generting statistics and graphs of each runtime, from average fitness to lowest distance of a GA. For this, a Java library named jFreeChart \cite{10} was used to save time creating graphs allowing more time for concentrating on the GA. By creating graphs in runtime dynamically, it meant that the next secton of tis paper makes use of statistics already in a well presented form.\par
 As with any good appliocation, the TSP solver created is well commented, and Javadoc is availible in the 'dist/Javadoc' folder.
@@ -138,11 +139,12 @@ There are two simple ways of running the application, both through the runnable 
 \begin{figure}[H]
 \centering
   \includegraphics[width=.9\linewidth]{images/commandLine}
-  \caption{Example run of the console with example parameters.}
+  \caption{Example run of the console with example parameters. Output of ordered cities is placed into 'output.csv' file.}
   \label{fig:7}
 \end{figure}
 
 \subsection{Comparison of application results}
+Using the produced application, a comparison of results from using the different lgorithms implemented can be completed. There will be a range of different test set ups here, all of which will have graphs and statistics attahced, to help compare and decide the best set up for the travelling salesman problem in terms of a genetic algorithm.
 
 
 \section{Overall findings and conclusion}

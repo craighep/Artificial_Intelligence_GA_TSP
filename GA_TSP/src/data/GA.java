@@ -64,6 +64,7 @@ public class GA {
         TSPGenerator.generateCitiesCsv("output.csv", solution.getAllInPath());
         
         solution.setInitialDistance(initialDistance);
+        PathSolution.setRunTime((end - start) / 1000000);
         return solution;
     }
 

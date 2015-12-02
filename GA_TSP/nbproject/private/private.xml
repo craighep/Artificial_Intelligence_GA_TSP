@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/SelectionTool.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/PathSolution.java</file>
+            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/stats/LineChart.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/Chromosome.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/listener/ButtonListener.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/panel/ButtonPanel.java</file>
@@ -15,6 +16,7 @@
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/types/CrossoverType.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/frame/TSPFrame.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/panel/CanvasPanel.java</file>
+            <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/Population.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/gui/listener/MouseInterListener.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/Runnable.java</file>
             <file>file:/C:/Users/Craig/Documents/GitHub/Artificial_Intelligence_GA_TSP/GA_TSP/src/data/CrossoverTool.java</file>

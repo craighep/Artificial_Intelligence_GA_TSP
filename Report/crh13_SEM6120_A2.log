@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.4)  1 DEC 2015 23:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.4)  2 DEC 2015 11:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -352,22 +352,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images/GUI.jpg Graphic file (type jpg)
 
 <use images/GUI.jpg>
-Package pdftex.def Info: images/GUI.jpg used on input line 133.
+Package pdftex.def Info: images/GUI.jpg used on input line 134.
 (pdftex.def)             Requested size: 201.60077pt x 168.9275pt.
  <images/commandLine.jpg, id=27, 452.4403pt x 91.84312pt>
 File: images/commandLine.jpg Graphic file (type jpg)
 
 <use images/commandLine.jpg>
-Package pdftex.def Info: images/commandLine.jpg used on input line 140.
+Package pdftex.def Info: images/commandLine.jpg used on input line 141.
 (pdftex.def)             Requested size: 226.79846pt x 46.03775pt.
 
-Underfull \hbox (badness 3128) in paragraph at lines 159--161
+Underfull \hbox (badness 3128) in paragraph at lines 160--162
 []\OT1/ptm/m/n/8 E.W. Weis-stein, \OT1/ptm/m/it/8 Hamil-to-nian Cy-cle\OT1/ptm/
 m/n/8 , $\OT1/ptm/m/it/8 http : / / mathworld . wolfram . com /
  []
 
 
-Underfull \hbox (badness 4819) in paragraph at lines 163--165
+Underfull \hbox (badness 4819) in paragraph at lines 164--166
 []\OT1/ptm/m/n/8 D.W. Dyer, \OT1/ptm/m/it/8 When are Evo-lu-tion-ary Al-go-rith
 ms Use-ful?\OT1/ptm/m/n/8 , $\OT1/ptm/m/it/8 http : / /
  []
@@ -375,9 +375,7 @@ ms Use-ful?\OT1/ptm/m/n/8 , $\OT1/ptm/m/it/8 http : / /
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
-[5
-
- <./images/GUI.jpg> <./images/commandLine.jpg>] (./crh13_SEM6120_A2.aux) ) 
+[5 <./images/GUI.jpg> <./images/commandLine.jpg>] (./crh13_SEM6120_A2.aux) ) 
 Here is how much of TeX's memory you used:
  3100 strings out of 493054
  47116 string characters out of 6138327
@@ -386,14 +384,14 @@ Here is how much of TeX's memory you used:
  37948 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,6n,23p,844b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/t
-exlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2015/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/tim
-es/utmb8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:
-/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2015/texm
-f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on crh13_SEM6120_A2.pdf (5 pages, 353120 bytes).
+{c:
+/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/t
+imes/utmb8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><
+c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2015/te
+xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on crh13_SEM6120_A2.pdf (5 pages, 353757 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
  31 compressed objects within 1 object stream

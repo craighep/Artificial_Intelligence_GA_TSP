@@ -83,8 +83,8 @@ public class Population {
             fitness += paths[i].getFitness();
         }
         Path average = new Path();
-        average.setDistance(distance);
-        average.setFitness(fitness);
+        average.setDistance(distance / paths.length);
+        average.setFitness(fitness / paths.length);
         return average;
     }
 

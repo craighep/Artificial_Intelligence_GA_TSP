@@ -12,6 +12,7 @@ public class PathSolution extends ArrayList<City> {
 
     private static ArrayList cities = new ArrayList<>();
     private static boolean isSolved = false;
+    private static long runTime = 0;
 
     /**
      * Adds a given city to the solution path.
@@ -75,5 +76,13 @@ public class PathSolution extends ArrayList<City> {
      */
     public static void setSolved(boolean solved) {
         isSolved = solved;
+    }
+    
+    public static void setRunTime(long RT) {
+        runTime = RT;
+    }
+    
+    public static long getRunTime() {
+        return runTime;
     }
 }

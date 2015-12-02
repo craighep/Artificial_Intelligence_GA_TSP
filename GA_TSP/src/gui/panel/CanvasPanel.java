@@ -23,6 +23,7 @@ public class CanvasPanel extends JPanel implements ActionListener {
     private StatusPanel statusPane;
     private JLabel totalLabel = new JLabel("");
     private JLabel initialLabel = new JLabel("");
+    private JLabel runTimeLabel = new JLabel("");
     SpringLayout layout = new SpringLayout();
     private JSeparator statusSep = new JSeparator(JSeparator.VERTICAL);
 
@@ -40,12 +41,17 @@ public class CanvasPanel extends JPanel implements ActionListener {
         
         //Initialise and add components to panel
         this.setLayout(layout);
+        this.add(runTimeLabel);
+        runTimeLabel.setForeground(Color.red);
         this.add(totalLabel);
         totalLabel.setForeground(Color.red);
         this.add(initialLabel);
         initialLabel.setForeground(Color.red);
 
-        layout.putConstraint(SpringLayout.SOUTH, initialLabel, -50, SpringLayout.SOUTH, this);
+        layout.putConstraint(SpringLayout.SOUTH, runTimeLabel, -80, SpringLayout.SOUTH, this);
+        layout.putConstraint(SpringLayout.WEST, runTimeLabel, 10, SpringLayout.WEST, this);
+        
+        layout.putConstraint(SpringLayout.SOUTH, initialLabel, 30, SpringLayout.SOUTH, runTimeLabel);
         layout.putConstraint(SpringLayout.WEST, initialLabel, 10, SpringLayout.WEST, this);
         
         layout.putConstraint(SpringLayout.SOUTH, totalLabel, 30, SpringLayout.SOUTH, initialLabel);
@@ -112,6 +118,7 @@ public class CanvasPanel extends JPanel implements ActionListener {
      * @param path Current solution path
      */
     public void showStats(Path path) {
+        runTimeLabel.setText("Run Time: " + PathSolution.getRunTime() + "ms");
         totalLabel.setText("Total Solution Distance: " + path.getDistance());
         initialLabel.setText("Initial Order Distance: " + path.getInitialDistance());
     }
@@ -120,6 +127,7 @@ public class CanvasPanel extends JPanel implements ActionListener {
      * Removes the text on the canvas panel.
      */
     public void hideStats(){
+        runTimeLabel.setText("");
         totalLabel.setText("");
         initialLabel.setText("");
      }
