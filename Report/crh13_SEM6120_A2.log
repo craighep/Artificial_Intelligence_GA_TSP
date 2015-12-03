@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.4)  2 DEC 2015 19:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.4)  3 DEC 2015 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -219,7 +219,14 @@ LaTeX Info: Redefining \] on input line 2666.
 LaTeX Warning: Unused global option(s):
     [article].
 
-(./crh13_SEM6120_A2.aux)
+(./crh13_SEM6120_A2.aux
+
+LaTeX Warning: Label `fig:14' multiply defined.
+
+
+LaTeX Warning: Label `fig:15' multiply defined.
+
+)
 \openout1 = `crh13_SEM6120_A2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -427,13 +434,65 @@ Overfull \hbox (17.27037pt too wide) in paragraph at lines 221--230
  []
 
 
-Underfull \hbox (badness 3128) in paragraph at lines 246--248
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
+
+ []
+
+<images/test1.jpg, id=40, 599.23875pt x 594.72188pt>
+File: images/test1.jpg Graphic file (type jpg)
+ <use images/test1.jpg>
+Package pdftex.def Info: images/test1.jpg used on input line 247.
+(pdftex.def)             Requested size: 201.60077pt x 200.07928pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+<images/bestDistances1.jpeg, id=41, 642.4pt x 481.8pt>
+File: images/bestDistances1.jpeg Graphic file (type jpg)
+
+<use images/bestDistances1.jpeg>
+Package pdftex.def Info: images/bestDistances1.jpeg used on input line 254.
+(pdftex.def)             Requested size: 201.60077pt x 151.20172pt.
+
+<images/test2.jpg, id=42, 592.46344pt x 586.44093pt>
+File: images/test2.jpg Graphic file (type jpg)
+ <use images/test2.jpg>
+Package pdftex.def Info: images/test2.jpg used on input line 272.
+(pdftex.def)             Requested size: 201.60077pt x 199.54834pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./images/test1.jpg> <./images/bestDistances1.jpeg>]
+<images/averageFitnesses2.jpeg, id=47, 642.4pt x 481.8pt>
+File: images/averageFitnesses2.jpeg Graphic file (type jpg)
+
+<use images/averageFitnesses2.jpeg>
+Package pdftex.def Info: images/averageFitnesses2.jpeg used on input line 279.
+(pdftex.def)             Requested size: 201.60077pt x 151.20172pt.
+
+<images/test3.jpg, id=48, 591.71063pt x 596.2275pt>
+File: images/test3.jpg Graphic file (type jpg)
+ <use images/test3.jpg>
+Package pdftex.def Info: images/test3.jpg used on input line 297.
+(pdftex.def)             Requested size: 201.60077pt x 203.13316pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+<images/averageFitnesses3.jpeg, id=49, 642.4pt x 481.8pt>
+File: images/averageFitnesses3.jpeg Graphic file (type jpg)
+
+<use images/averageFitnesses3.jpeg>
+Package pdftex.def Info: images/averageFitnesses3.jpeg used on input line 304.
+(pdftex.def)             Requested size: 201.60077pt x 151.20172pt.
+
+Underfull \hbox (badness 3128) in paragraph at lines 321--323
 []\OT1/ptm/m/n/8 E.W. Weis-stein, \OT1/ptm/m/it/8 Hamil-to-nian Cy-cle\OT1/ptm/
 m/n/8 , $\OT1/ptm/m/it/8 http : / / mathworld . wolfram . com /
  []
 
 
-Underfull \hbox (badness 4819) in paragraph at lines 250--252
+Underfull \hbox (badness 4819) in paragraph at lines 325--327
 []\OT1/ptm/m/n/8 D.W. Dyer, \OT1/ptm/m/it/8 When are Evo-lu-tion-ary Al-go-rith
 ms Use-ful?\OT1/ptm/m/n/8 , $\OT1/ptm/m/it/8 http : / /
  []
@@ -441,43 +500,50 @@ ms Use-ful?\OT1/ptm/m/n/8 , $\OT1/ptm/m/it/8 http : / /
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
-
-Underfull \hbox (badness 7667) in paragraph at lines 282--284
+[8 <./images/test2.jpg> <./images/averageFitnesses2.jpeg> <./images/test3.jpg> 
+<./images/averageFitnesses3.jpeg>]
+Underfull \hbox (badness 7667) in paragraph at lines 357--359
 []\OT1/ptm/m/n/8 L. Ja-cob-son, \OT1/ptm/m/it/8 Ap-ply-ing a ge-netic al-go-rit
 hm to the trav-el-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--284
+Underfull \hbox (badness 10000) in paragraph at lines 357--359
 \OT1/ptm/m/it/8 sales-man prob-lem\OT1/ptm/m/n/8 , $\OT1/ptm/m/it/8 http : / / 
 www . theprojectspot . com / tutorial-[]post /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--284
+Underfull \hbox (badness 10000) in paragraph at lines 357--359
 \OT1/ptm/m/it/8 applying-[]a-[]genetic-[]algorithm-[]to-[]the-[]travelling-[]sa
 lesman-[]problem / 5$\OT1/ptm/m/n/8 ,
  []
 
-[7] (./crh13_SEM6120_A2.aux) ) 
+[9
+
+] (./crh13_SEM6120_A2.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3144 strings out of 493054
- 48526 string characters out of 6138327
- 123251 words of memory out of 5000000
- 6623 multiletter control sequences out of 15000+600000
- 39672 words of font info for 76 fonts, out of 8000000 for 9000
+ 3181 strings out of 493054
+ 49309 string characters out of 6138327
+ 120308 words of memory out of 5000000
+ 6653 multiletter control sequences out of 15000+600000
+ 40779 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,7n,23p,844b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2015/texmf-dist/fonts/enc/dvips/base/
-8r.enc}<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c
-:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/
-2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2015/texmf-dist/fo
-nts/type1/urw/times/utmbi8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/tim
-es/utmr8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on crh13_SEM6120_A2.pdf (7 pages, 637908 bytes).
+ 38i,7n,23p,844b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/
+urw/times/utmb8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.
+pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/20
+15/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on crh13_SEM6120_A2.pdf (9 pages, 1010898 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

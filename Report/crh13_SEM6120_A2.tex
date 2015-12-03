@@ -229,7 +229,82 @@ Tournament     & 1000               & 2786              & 14
 \end{tabular}
 \end{table}
 
-In order to refine the best GA, the next few tests will only consider ordered crossover. There was also an increase in cities to 30 in the next set of experiments to both push the algorithms further, and to allow better statistics to be gained considering average and best fitness/ distance levels.
+In order to refine the best GA, the next few tests will only consider ordered crossover. There was also an increase in cities to 30 in the next set of experiments to both push the algorithms further, and to allow better statistics to be gained considering average and best fitness/ distance levels. Mutation rates will also be increased in the following tests, to see how changing the paths more effect the different selection types, and the genetic algorithm as a whole.\\
+
+\textbf{Test one using:} 
+\begin{itemize}
+\item Rank based selection
+\item Ordered crossover
+\item 1000 Evolutions
+\item Mutation of 0.25
+\item Elitism disabled
+\end{itemize} 
+
+Shown in Figure \ref{fig:14}, the result of this test, showing that altough the solution looks as if it is linking some corect cities together, crossed lines are still apearing showing signs that the solution could be better completed. The second graphic, Figure \ref{fig:15} shows the best distance chromosome (path) in the population after each evolution. It can be seen here 
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.8\linewidth]{images/test1}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:14}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.8\linewidth]{images/bestDistances1}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:15}
+\end{figure}
+
+\textbf{Test two using:} 
+\begin{itemize}
+\item Rank based selection
+\item Ordered crossover
+\item 1000 Evolutions
+\item Mutation of 0.25
+\item Elitism disabled
+\end{itemize} 
+
+Shown in Figure \ref{fig:14}, the result of this test, showing that altough the solution looks as if it is linking some corect cities together, crossed lines are still apearing showing signs that the solution could be better completed. The second graphic, Figure \ref{fig:15} shows the best distance chromosome (path) in the population after each evolution. It can be seen here 
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.8\linewidth]{images/test2}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:16}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.8\linewidth]{images/averageFitnesses2}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:17}
+\end{figure}
+
+\textbf{Test three using:} 
+\begin{itemize}
+\item Rank based selection
+\item Ordered crossover
+\item 1000 Evolutions
+\item Mutation of 0.25
+\item Elitism disabled
+\end{itemize} 
+
+Shown in Figure \ref{fig:14}, the result of this test, showing that altough the solution looks as if it is linking some corect cities together, crossed lines are still apearing showing signs that the solution could be better completed. The second graphic, Figure \ref{fig:15} shows the best distance chromosome (path) in the population after each evolution. It can be seen here 
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.8\linewidth]{images/test3}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:18}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.8\linewidth]{images/averageFitnesses3}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:19}
+\end{figure}
 
 \section{Overall findings and conclusion}
 Concluding the tests performed previously, 
