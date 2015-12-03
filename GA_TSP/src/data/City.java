@@ -25,6 +25,7 @@ public class City {
      * Constructs a new city with location x and y.
      * @param x x coord
      * @param y y coord
+     * @param id ID to be given to city
      */
     public City(int x, int y, int id) {
         this.x = x;

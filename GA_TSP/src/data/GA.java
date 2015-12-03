@@ -113,16 +113,22 @@ public class GA {
         }
         return newPopulation;
     }
-
+    
+    /*
+     * Performs swap mutation on a path, given a mutation probability.
+     * @param path The path to be mutated
+     * @param mutationProbability Probability between 1 and 0 to mutate the given
+     * path.
+     * @returns path
+    */
     private void mutate(Path path, double mutationRate) {
         for (int pathPos1 = 0; pathPos1 < path.pathSize(); pathPos1++) {
+            // if mutation probability is higher than a random number, then mutate
             if (Math.random() < mutationRate) {
                 int pathPos2 = (int) (path.pathSize() * Math.random());
-
                 City city1 = path.getCity(pathPos1);
                 City city2 = path.getCity(pathPos2);
-
-                // Swap them around
+                // SSwap cities
                 path.setCity(pathPos2, city1);
                 path.setCity(pathPos1, city2);
             }

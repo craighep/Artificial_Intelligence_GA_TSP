@@ -8,15 +8,20 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
- *
+ * Class responsible for generating and reading in TSP problems to/from CSV format.
  * @author Craig
  */
 public class TSPGenerator {
 
+    /*
+     * Generates a CSV file using a given list of cities and a filename to 
+     * write to.
+     * @param sFileName Name of file for writing to
+     * @param cities A list of city objects
+     */
     public void generateCitiesCsv(String sFileName, List<City> cities) {
         try (FileWriter writer = new FileWriter(sFileName)) {
             writer.append("Id");
@@ -43,8 +48,8 @@ public class TSPGenerator {
 
     /**
      * Randomly creates a path using a (given number of) random points in
-     * between x and y values of 0 and a number passed.
-     *
+     * between x and y values of 0 and a number passed. Uses the Java random 
+     * secure library to do generate points.
      * @param amount Number of points to generate
      * @param maxX Maximum x value of location
      * @param maxY Maximum y value of location
@@ -62,6 +67,12 @@ public class TSPGenerator {
         generateCitiesCsv("input.csv", cities);
     }
 
+    /*
+     * Reads in a given csv file, and returns a list of city objects based 
+     * from coordinates read in.
+     * @param filename Filename/ path to input csv file
+     * @returns cities
+     */
     public ArrayList<City> readCitiesCsv(String filename) {
         BufferedReader br;
         String line = "";

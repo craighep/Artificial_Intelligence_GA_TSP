@@ -82,6 +82,8 @@ public class Population {
             distance += paths[i].getDistance();
             fitness += paths[i].getFitness();
         }
+        // create a path just for storing the average distance and fitness of
+        // the current population
         Path average = new Path();
         average.setDistance(distance / paths.length);
         average.setFitness(fitness / paths.length);
@@ -92,11 +94,15 @@ public class Population {
      * Gets the number of paths in the population.
      * @return populationSize
      */
-    final int getPopulationSize() {
+    public int getPopulationSize() {
         return paths.length;
     }
 
-    double getTotalFitness() {
+    /*
+     * Gets the total fitness for all the population
+     * @returns totalFitness
+     */
+    public double getTotalFitness() {
         double totalFitness = 0;
         for (Path path : paths) {
             totalFitness += path.getFitness();

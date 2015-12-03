@@ -78,10 +78,18 @@ public class PathSolution extends ArrayList<City> {
         isSolved = solved;
     }
     
+    /*
+     * @Param RT Run time for the solution
+     * Method sets the completed run time for the solved solution
+     */
     public static void setRunTime(long RT) {
         runTime = RT;
     }
     
+    /*
+     * Method gets the completed run time for the solved solution
+     * @returns runTime
+     */
     public static long getRunTime() {
         return runTime;
     }

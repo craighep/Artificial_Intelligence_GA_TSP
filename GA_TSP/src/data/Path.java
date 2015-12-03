@@ -112,7 +112,6 @@ public class Path extends Chromosome implements Comparable {
      */
     public int getDistance() {
         if (distance == 0) {
-            int totalDistance = 0;
             for (int cityIndex = 0; cityIndex < pathSize(); cityIndex++) {
                 City fromCity = getCity(cityIndex);
                 City destinationCity;
@@ -122,9 +121,8 @@ public class Path extends Chromosome implements Comparable {
                 } else {
                     destinationCity = getCity(0);
                 }
-                totalDistance += fromCity.getDistanceBetween(destinationCity);
+                distance += fromCity.getDistanceBetween(destinationCity);
             }
-            distance = totalDistance;
         }
         return distance;
     }
