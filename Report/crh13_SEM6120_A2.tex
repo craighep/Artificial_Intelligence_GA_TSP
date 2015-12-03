@@ -53,7 +53,7 @@ Before looking at the possible genetic algorithms to be considered for such a pu
 \end{enumerate}
 
 \section{Proposed solution}
-The following sub sections of this paper discusses the merits and drawbacks of using certain genetic algorithm selection strategies. Testing the capabilities of GA's using different means of selecting individual chromosomes (or tour solutions in the case of the travelling salesman problem) will allow statics and conclusions to be applied to the respective strategies, and have a higher chance of finding best possible results for the TSP problem. Alongside selection, the concept of elitism is looked at. Elitism may prevent strong solutions being lost on mutation and crossover, and therefore create better, faster-found routes. 
+Testing the capabilities of GA's using different means of selecting individual chromosomes (or tour solutions in the case of the travelling salesman problem) will allow statics and conclusions to be applied to the respective strategies, and have a higher chance of finding best possible results for the TSP problem. Alongside selection, the concept of elitism is looked at. Elitism may prevent strong solutions being lost on mutation and crossover, and therefore create better, faster-found routes. 
 
 \subsection{Considered and selected GA representations}
 As already discussed in the previous section of the paper, most GA's have been based off of older ones such as chromosome representation \cite{5}. For the purpose of this paper, the algorithm used for the TSP will be also based on this algorithm though different aspects such as crossover, mutation and elitism types will be looked at. To keep the algorithm at a simple chromosome state will allow easier implementation of the algorithm in code form, therefore will be easier to manipulate and change specific aspects to allow for statistical research. \par
@@ -88,20 +88,22 @@ In the case of this TSP solver application, this could be done by firstly compar
 The third and final selection technique to be explored that will be tested in a TSP solver application will be tournament selection method. This uses a different mechanism to the previous two, by only evaluating a given number of solutions in a population rather than the entire population. Using the defined number of randomly selected chromosomes, the algorithm then gets the fitness of each and returns the winning chromosome. The tournament selection method ensures that weaker chromosomes do not make it through to the next evolution. In the case of the proposed application, this would be a simple implementation of a method which takes a population, a requested tournament size, and then uses a random number generator to select solutions before competing them together to return a winner. 
 
 \subsubsection{Crossover methods}
-The next integral part of the genetic algorithm to be implemented is the crossover type. For this, two methods have been considered; ordered and uniform. Alike the previous section, both will be discussed how they function and how they will be integrated within the solver application. \par
 The reason for only selecting two crossover methods stems from the reason that although many crossover algorithms exist, many of them are inconsistant a probelm such as travelling salesman. For instance, take the crossover example in Figure \ref{fig:5}, after a simple one-point crossover, although the chromosomes have been mixed, the solutions in the childs are no longer valid since not all the points will be visited. A paper by Kylie Bryant which looks at both general genetic algorithms and how they can be applied to the travelling salesman problem mentions that algorithms should be made to make sure that children chromosomes do not finish as illeagle solutions, and that 'in this way, crossover is very problem specific' \cite{7}. \par
-The first to be considered is ordered crossover. The same paper explains this type of crossover well, explaining that this type of crossover is very similar to the PMX (partially mapped crossover) method, except instead of repairing chromesomes which contain repeat nodes, the rest of the nodes are rearranged to provide a leagal path. In the application, this will be implemented by starting with a switch of part of two chromosomes between two crossover points. With this complete, then the child chromosomes will be constrcted using genes from the start of the second crossover point, and these are to be  added until the parent is looped over and reach the first crossover point. Finally the selected crossover genes will be placed into the child chromosomes in the position of the first crossover point.
-The second crossover algorithm 
-
-TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+The first to be considered is ordered crossover. The same paper explains this type of crossover well, explaining that this type of crossover is very similar to the PMX (partially mapped crossover) method, except instead of repairing chromesomes which contain repeat nodes, the rest of the nodes are rearranged to provide a leagal path. In the application, this will be implemented by starting with a switch of part of two chromosomes between two crossover points. With this complete, then the child chromosomes will be constrcted using genes from the start of the second crossover point, and these are to be  added until the parent is looped over and reach the first crossover point. Finally the selected crossover genes will be placed into the child chromosomes in the position of the first crossover point.\par
+The second crossover algorithm that will be implemented by the TSP solver applicaiton will be cyclic crossover. Good examples of the cyclic crossover method can be found on various online tutorials \cite{8} and explained well on the apache commons library\cite{9} with:
+\begin{itemize}
+\item Start with the first gene of parent 1
+\item Look at the gene at the same position of parent 2
+\item Go to the position with the same gene in parent 1
+\item Add this gene index to the cycle
+\item Repeat the steps 2-5 until we arrive at the starting gene of this cycle
+\end{itemize}
 
 \subsubsection{Mutation methods}
-For the same reason that crossover options are limited due to the NP-Hard nature of the travelling salesmane problem, only a short amount of availible mutation types were availible for consideration. For the purposes of this paper and the application constructed, only one mutation type will be used, swap mutation. Swap mutation is a very ideal solution to mutating points along a TSP becuase it allows routes to branch off and explore paths gradually further down the route as more optimum solutions are found. One author of an online article exploring a similar problem to this paper, states that using simple swap mutation makes the GA 'unable to achieve an optimum quickly but can prevent convergence into a local optimum' \cite{8}. \par
-In order to allow the TSP solver to have the best chance of finding optimal solutions wth greater amounts of nodes or cities, the application will use the simple swap mutation algorithm. For instance, in the case that there are fourty points in a TSP, a more advanced swap mutation might find a solution it believes optimal quickly due to little improvement after a certain amount of time, this swap mutation will continue looking at other options and could find a better ending solution. In the results stage of this paper, especially when combined with roulette selection, that the avergage fitness should derease to a low point and then waver at that point until the application stops.\par
-The suggested implimentatoin of mutation should involve looping through each city in a path, and selecting two random points, swapping them both. Of course a mutation rate will be set to ensure that swapping is not always performed, otherwise the local minimum fitness may never be found. To do this in terms of programming the solver, a simple check would only allow a swap i the mutation rate is higher than a random number generated between 1 and 0.
+For the same reason that crossover options are limited due to the NP-Hard nature of the travelling salesmane problem, only a short amount of availible mutation types were availible for consideration. For the purposes of this paper and the application constructed, only one mutation type will be used, swap mutation. Swap mutation is a very ideal solution to mutating points along a TSP becuase it allows routes to branch off and explore paths gradually further down the route as more optimum solutions are found. One author of an online article exploring a similar problem to this paper, states that using simple swap mutation makes the GA 'unable to achieve an optimum quickly but can prevent convergence into a local optimum' \cite{10}. \par
 
 \subsubsection{Evolution stop criteria}
-The final part of any GA and one that has been considered while planning the implementation the TSP solver is deciding when to stop the evolutions of chromosomes, or in otherwords stopping the looping of selection, crossover and mutation. In a chapter from the book 'Advances in Artificial Intelligence – SBIA 2004' \cite{9}, the three most commonly and widley used stopping criteria are described:
+The final part of any GA and one that has been considered while planning the implementation the TSP solver is deciding when to stop the evolutions of chromosomes, or in otherwords stopping the looping of selection, crossover and mutation. In a chapter from the book 'Advances in Artificial Intelligence – SBIA 2004' \cite{11}, the three most commonly and widley used stopping criteria are described:
 \begin{itemize}
 \item An upper limit for number of generations is reached
 \item An upper limit on the number of evaulated fitness functions is reached
@@ -121,30 +123,10 @@ As it can be seen in the diagram, there is a GUI in the design which is seperate
 Starting by looking at key classes in Figure \ref{fig:5}, the main class 'Runnable' is responsible for triggering a run of the algorithm or trigger the opening of the GUI. If the user runs the jr using the 'java' command and passes correct arguments, then the output is printed to the command line alongisde an export of the result csv file, and graphs from runtime. Otherwise the applcation frame is opened, and the user can perofrm actions through controls availible. \par
 To keep the GA class as simple as posisble, a lot of the logic for performing the solving of TSP's was placed into helper classes such as selection and crossover 'tools'. Both these classes contain all th implemented methods for crossovers and selections, and are selected via enumerted types for both respectably. All of the algorithms implemented can be found in the previous subection of this paper, and all have graphical and command line options to use each. \par
 The TSP generatot class is especially important, making use of teh Java Secure Random library to give less chance of duplicated points. This class has the ability to import and export paths to CSV and is used when the user generates points in the GUI (exporting points), or used when running the application through the command line (reading points in).\par
-A quick mention should be made to an extra feature implimented, which allows the user to click anywhere on the canvas to add a new city. This is very useful for testing, as harder, more custom paths can be made. \par
 As for represntations of the actual paths, it was ensured that both chromosomes (paths), and genes (cities) would be done in the most object orientated way possible. As shown in the class diagram in Figure \ref{fig:5}, a population is a collection of Paths, with each of these extending an abstract class of type chromosome. This has been done to show the relationship to genetics that the GA has. Within each path, a collection of cities (which represent genes) form the solutions to the given TSP. \par
-Other than the GA workings and GUI, there is also a connection to a class 'LineChart'. This class is responsible for generting statistics and graphs of each runtime, from average fitness to lowest distance of a GA. For this, a Java library named jFreeChart \cite{10} was used to save time creating graphs allowing more time for concentrating on the GA. By creating graphs in runtime dynamically, it meant that the next secton of tis paper makes use of statistics already in a well presented form.\par
-As with any good appliocation, the TSP solver created is well commented, and Javadoc is availible in the 'dist/Javadoc' folder. A mention should also be made to an online article on the project spot \cite{11}, which provided a good example on how to structure general GA's in the Java OO format.
-
-\subsubsection{Running the application}
-There are two simple ways of running the application, both through the runnable Jar file. Figure \ref{fig:6} shows the result of simply opening the Jar to open up the GUI. The other option is shown in Figure \ref{fig:7} by running the Jar through the command line to produce a command line repsonse. The primary parameters for this are: name of csv file containing coordiantes; a mutation rate; an evolution amount; whether elitism should be enabled; a selection type; and a crossover type. It should be noted that in order to run the command line version, the GUI version may need to be run if the user wishes to make use of the random point generation operation, which will only export to CSV whilst run in the GUI.
-
-\begin{figure}[H]
-\centering
-  \includegraphics[width=.8\linewidth]{images/GUI}
-  \caption{The appplication running with it GUI.}
-  \label{fig:6}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-  \includegraphics[width=.9\linewidth]{images/commandLine}
-  \caption{Example run of the console with example parameters. Output of ordered cities is placed into 'output.csv' file.}
-  \label{fig:7}
-\end{figure}
 
 \subsection{Comparison of application results}
-Using the produced application, a comparison of results from using the different lgorithms implemented can be completed. There will be a range of different test set ups here, all of which will have graphs and statistics attahced, to help compare and decide the best set up for the travelling salesman problem in terms of a genetic algorithm. Initial set ups (listed by selection type) will be described below, followed by tabled statistics of modifcations of those set ups.
+There will be a range of different test set ups here, all of which will have graphs and statistics attahced, to help compare and decide the best set up for the travelling salesman problem in terms of a genetic algorithm. Initial set ups (listed by selection type) will be described below, followed by tabled statistics of modifcations of those set ups.
 
 \subsubsection{Rank based selection}
 Starting with a problem space of 12, the solution produced can be found in Figure \ref{fig:8}. Figure \ref{fig:9} shows the same setup, but with a doubled evolution amount, to 1000.
@@ -240,7 +222,7 @@ In order to refine the best GA, the next few tests will only consider ordered cr
 \item Elitism disabled
 \end{itemize} 
 
-Shown in Figure \ref{fig:14}, the result of this test, showing that altough the solution looks as if it is linking some corect cities together, crossed lines are still apearing showing signs that the solution could be better completed. The second graphic, Figure \ref{fig:15} shows the best distance chromosome (path) in the population after each evolution. It can be seen here 
+Shown in Figure \ref{fig:14}, the result of this test, showing that altough the solution looks as if it is linking some corect cities together, crossed lines are still apearing showing signs that the solution could be better completed. The second graphic, Figure \ref{fig:15} shows the best distance chromosome (path) in the population after each evolution. Becuase of the increase in mutation rate, the best distance path in each evolution differs more than a lesser mutation rate. Overall though, the graph does eventually show a decrease in path distance.
 
 \begin{figure}[H]
 \centering
@@ -258,14 +240,14 @@ Shown in Figure \ref{fig:14}, the result of this test, showing that altough the 
 
 \textbf{Test two using:} 
 \begin{itemize}
-\item Rank based selection
+\item Roulette wheel based selection
 \item Ordered crossover
 \item 1000 Evolutions
 \item Mutation of 0.25
-\item Elitism disabled
+\item Elitism enabled
 \end{itemize} 
 
-Shown in Figure \ref{fig:14}, the result of this test, showing that altough the solution looks as if it is linking some corect cities together, crossed lines are still apearing showing signs that the solution could be better completed. The second graphic, Figure \ref{fig:15} shows the best distance chromosome (path) in the population after each evolution. It can be seen here 
+Figure \ref{fig:16} shows the result of running roulette wheel selection, and shows clearly a better solution. Not only is the solution path shorter, but a reduction in crossed lines can be seen. Figure \ref{fig:17} shows that over the span of a 1000 evolutions, the fitness level gets better sharply before tapering off. Elitism was enabled for this test, otheriwse the roulette wheel secltion would always choose any random chromosome, therefore never really creating a steady decrease in distances of solutions.
 
 \begin{figure}[H]
 \centering
@@ -283,14 +265,14 @@ Shown in Figure \ref{fig:14}, the result of this test, showing that altough the 
 
 \textbf{Test three using:} 
 \begin{itemize}
-\item Rank based selection
+\item Tournament based selection
 \item Ordered crossover
 \item 1000 Evolutions
 \item Mutation of 0.25
-\item Elitism disabled
+\item Elitism enabled
 \end{itemize} 
 
-Shown in Figure \ref{fig:14}, the result of this test, showing that altough the solution looks as if it is linking some corect cities together, crossed lines are still apearing showing signs that the solution could be better completed. The second graphic, Figure \ref{fig:15} shows the best distance chromosome (path) in the population after each evolution. It can be seen here 
+The final test looks at tournament selection, with elitism enabled. Without it, there would be too many random solutions used to create children chromosomes. In this test result as shown in figures \ref{fig:18} and \ref{fig:19}, not only was a better path selected, but the rate at which the fitness improved was much faster.
 
 \begin{figure}[H]
 \centering
@@ -307,9 +289,60 @@ Shown in Figure \ref{fig:14}, the result of this test, showing that altough the 
 \end{figure}
 
 \section{Overall findings and conclusion}
-Concluding the tests performed previously, 
+Starting with selection mechanisms, the initial testing phase showed that all three selection types had a similar ending solution when using a low level of nodes. The differences only started to show when more nodes were added, with both roulette wheel and tournament selectiojn performing better. Roulette wheel however did operate faster than the other techniques, due to less logic being ruquired to choose chromosomes. Unlike rank and tournament, all the chromosomes in a population did not have to be re-rodered before decidding which one to choose, therefore making it a quicker process. \par
+In addition to this, both roulette wheel and tournament were found to require elitism in order to make them both as effective as possible. With too many random nodes selected, both fell in terms of performance greatly. Roulette however started stronger, but then tournament appeatred to perform better after a certain amount of cities. This is also reflected in Figure \ref{fig:20}. \par
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.8\linewidth]{images/distances}
+  \caption{Result using rank based slection, ordered crossover and an evolution amount of 500.}
+  \label{fig:20}
+\end{figure}
+As for the crossover means, this was harder to test, but by compairing the speed at which both algorithms ran ordered crossover was found to be slightly quicker. \par
+The mutation probability was also a paramenter in the GA that was changed during testing, and tests showed that the higher (0.025) 25 in 1000 chromosomes to be modified helped selection techniques such as roulette wheel benifit. Of course on the other hand, rank based selection performed slightly worse due to it preferring as many higher ranked chromosomes as possible. \par
+Using all the information gained, the suggested set ups for a TSP solver using the application options availible described in this paper are as follows:\\
+\phantom{.}
+\textbf{For problems with smaller amounts of cities (0-20):}
+\begin{itemize}
+\item Roulette wheel selection
+\item Ordered crossover
+\item Less than 1000 Evolutions
+\item Mutation of 0.15
+\item Elitism enabled
+\end{itemize} 
+\phantom{.}
+\textbf{For problems with larger amounts of cities (20+):}
+\begin{itemize}
+\item Tournament selection
+\item Ordered crossover
+\item At least 1000 Evolutions
+\item Mutation of 0.25
+\item Elitism enabled
+\end{itemize} 
 
 \subsection{Improvements to proposed solution}
+In addition to the proposed solutions, there are a few conisdered improvements that may be possible with further testing and implemented selection/ crossover methods. Starting with selection methods, although three were implemented having more to test would allow further options to increase the capabilites of the GA. For crossover's, with more time this could be the case too. Many papers have been written on comparisons of crossover types, such as one from the International Journal of Latest Research in Science and Technology \cite{14}, which found the PMX crossover method (The only one out of the three mentioned in that paper that was not implimented in this application) to be a better solution. With more time, perhaps trying out this crossover method could improve the effectiveness of the GA.\par
+Future work would primarily focus on making the paths more effiecnet as a priority. By increasing the speed at which the GA operates, would allow more vigourous testing with a higher amount of cities to be tested with. The current state of the application allows the user to generate and run solutions for up to 100 cities. In the future it would be good to be able to handle a much larger amount of nodes, in order to put the GA to more practical and real life situations. \\
+
+\\
+\appendix
+
+\textbf{Running the application}\\
+There are two simple ways of running the application, both through the runnable Jar file. Figure \ref{fig:6} shows the result of simply opening the Jar to open up the GUI. The other option is shown in Figure \ref{fig:7} by running the Jar through the command line to produce a command line repsonse. The primary parameters for this are: name of csv file containing coordiantes; a mutation rate; an evolution amount; whether elitism should be enabled; a selection type; and a crossover type. It shou0ld be noted that in order to run the command line version, the GUI version may need to be run if the user wishes to make use of the random point generation operation, which will only export to CSV whilst run in the GUI. \par
+As with any good appliocation, the TSP solver created is well commented, and Javadoc is availible in the 'dist/Javadoc' folder. A mention should also be made to an online article on the project spot \cite{13}, which provided a good example on how to structure general GA's in the Java OO format.
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.8\linewidth]{images/GUI}
+  \caption{The appplication running with it GUI.}
+  \label{fig:6}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.9\linewidth]{images/commandLine}
+  \caption{Example run of the console with example parameters. Output of ordered cities is placed into 'output.csv' file.}
+  \label{fig:7}
+\end{figure}
 
 \begin{thebibliography}{9}
 
@@ -342,22 +375,35 @@ K. Bryant , \textit{Genetic Algorithms and the Traveling Salesman Problem},
 Department of Mathematics. Harvey Mudd college., 2000. 
 
 \bibitem{8} 
+B. Webster, \textit{Crossover Technique: Cycle Crossover},
+\textit{\url{http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/CycleCrossoverOperator.aspx}}, 2015.
+
+\bibitem{9} 
+Apache, \textit{Apache Commons CycleCrossover Method},
+\textit{\url{http://commons.apache.org/proper/commons-math/apidocs/org/apache/commons/math3/genetics/CycleCrossover.html}}, 2015.
+
+\bibitem{10} 
 K. Boukreev, \textit{Genetic Algorithm and Traveling Salesman Problem},
 \textit{\url{http://www.generation5.org/content/2001/tspapp.asp}}, 2001.
 
-\bibitem{9}
+\bibitem{11}
 M. Safe , \textit{On Stopping Criteria for Genetic Algorithms},
 Advances in Artificial Intelligence – SBIA 1004., 2004. 
 
-\bibitem{10} 
+\bibitem{12} 
 Object Refinery Limited, \textit{JFreeChart},
 \textit{\url{http://www.jfree.org/jfreechart/download.html}}, 2013.
 
-\bibitem{11} 
+\bibitem{13} 
 L. Jacobson, \textit{Applying a genetic algorithm to the traveling salesman problem},
 \textit{\url{http://www.theprojectspot.com/tutorial-post/applying-a-genetic-algorithm-to-the-travelling-salesman-problem/5}}, 2012.
 
+\bibitem{14} 
+N. Kumar, K. Karimbir, R Kumar, \textit{A Comparative Analysis of PMX, CX and OX Crossover operators},
+International Journal of Latest Research in Science and Technology Vol.1 Issue.2, 2012.
+
 \end{thebibliography}
+
 \end{document}
 
 
